@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LOGICA PORTAL（ロジカ・ポータル）｜ あそべ、理系脳。きわめろ、ロジック。</title>
+<meta name="description" content="実験・育成・バトル・息抜き。勉強がそのまま最強の力に変わる、完全無料・登録不要の新世代Webゲームポータル『LOGICA PORTAL』公式サイト。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LOGICA PORTAL（ロジカ・ポータル）公式サイト">
+<meta property="og:description" content="あそべ、理系脳。きわめろ、ロジック。バイオ・ロジカ、ラボ・ロジカ、バトル・ロジカ、カジノ・ロジカの4大Webゲーム総合ポータル！">
+<meta name="theme-color" content="#0f172a">
+<style>
+  :root {
+    --bg-sky: #f0f9ff;
+    --bg-warm: #fefce8;
+    --ink: #0f172a;
+    --ink-sub: #475569;
+    --card-bg: #ffffff;
+    --cyan: #0ea5e9;
+    --cyan-dark: #0369a1;
+    --emerald: #10b981;
+    --emerald-dark: #047857;
+    --red: #ef4444;
+    --red-dark: #b91c1c;
+    --gold: #f59e0b;
+    --gold-dark: #b45309;
+    --purple: #8b5cf6;
+    --purple-dark: #6d28d9;
+    --pink: #ec4899;
+    --pink-dark: #be185d;
+    --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", "Meiryo", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.22) 0%, transparent 40%),
+      radial-gradient(circle at 88% 18%, rgba(168, 85, 247, 0.16) 0%, transparent 42%),
+      radial-gradient(circle at 80% 75%, rgba(250, 204, 21, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 15% 85%, rgba(16, 185, 129, 0.16) 0%, transparent 45%),
+      linear-gradient(180deg, #eff6ff 0%, #f8fafc 45%, #fefce8 100%);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* 背景のポップな浮遊ドットパターン */
+  .bg-dots {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(14, 165, 233, 0.12) 2px, transparent 2px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 🌟 ポップ＆立体ヘッダー */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 3px solid #bae6fd;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    gap: 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .brand-icon-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    box-shadow: 0 4px 0 #1e1b4b, 0 6px 14px rgba(15, 23, 42, 0.25);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .brand-title-wrap {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #0f172a 0%, #0284c7 60%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .brand-sub {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #0284c7;
+    letter-spacing: 0.8px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink-sub);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 800;
+    transition: color 0.18s;
+  }
+
+  .nav-links a:hover { color: var(--cyan); }
+
+  .btn-nav-tiktok {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(180deg, #f43f5e 0%, #db2777 100%);
+    color: #fff !important;
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-size: 0.82rem !important;
+    font-weight: 900 !important;
+    border: 2px solid #9d174d;
+    box-shadow: 0 3px 0 #9d174d;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+
+  .btn-nav-tiktok:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 #9d174d;
+  }
+
+  .btn-nav-tiktok:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #9d174d;
+  }
+
+  /* スマホ用横スクロール目次 */
+  .mobile-quick-nav {
+    display: none;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 6px 16px 10px;
+    border-top: 1px solid #e2e8f0;
+    scrollbar-width: none;
+  }
+  .mobile-quick-nav::-webkit-scrollbar { display: none; }
+  .mobile-quick-nav a {
+    flex-shrink: 0;
+    text-decoration: none;
+    color: var(--ink);
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    box-shadow: 0 2px 0 #cbd5e1;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  /* 🚀 ヒーローセクション */
+  .hero-section {
+    padding: 54px 0 60px;
+    text-align: center;
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2.5px solid #38bdf8;
+    box-shadow: 0 4px 0 #bae6fd;
+    color: #0369a1;
+    padding: 7px 20px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    margin-bottom: 26px;
+  }
+
+  /* ポータル中心＋4大アイコン浮遊ステージ */
+  .hero-icons-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 28px;
+    flex-wrap: wrap;
+    max-width: 640px;
+  }
+
+  .hero-mini-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.22), 0 12px 24px rgba(15, 23, 42, 0.16);
+    overflow: hidden;
+    animation: floatSlow 3.6s ease-in-out infinite;
+    background: #0f172a;
+    flex-shrink: 0;
+  }
+
+  .hero-mini-icon:nth-child(1) { animation-delay: 0s; }
+  .hero-mini-icon:nth-child(2) { animation-delay: 0.5s; }
+  .hero-mini-icon:nth-child(4) { animation-delay: 1.0s; }
+  .hero-mini-icon:nth-child(5) { animation-delay: 1.5s; }
+
+  .hero-center-icon {
+    width: 112px;
+    height: 112px;
+    border-radius: 28px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 10px 0 #1e1b4b, 0 18px 36px rgba(30, 27, 75, 0.35);
+    overflow: hidden;
+    animation: floatCenter 4s ease-in-out infinite;
+    background: #090d16;
+    flex-shrink: 0;
+  }
+
+  .hero-mini-icon img,
+  .hero-center-icon img,
+  .hero-mini-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes floatCenter {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.03); }
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5.2vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    color: #0f172a;
+  }
+
+  .hero-title .accent {
+    background: linear-gradient(135deg, #0284c7 0%, #10b981 50%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    font-size: clamp(0.96rem, 2.2vw, 1.15rem);
+    color: var(--ink-sub);
+    font-weight: 700;
+    max-width: 680px;
+    margin: 0 auto 30px;
+    line-height: 1.75;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ぷっくり立体ボタン（任天堂・妖怪ウォッチ風） */
+  .btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 16px;
+    padding: 14px 30px;
+    font-size: 1.05rem;
+    color: #ffffff;
+    cursor: pointer;
+    border: 3px solid;
+    transition: transform 0.12s, box-shadow 0.12s;
+    font-family: inherit;
+  }
+
+  .btn-3d:hover { transform: translateY(-2px); }
+  .btn-3d:active { transform: translateY(3px); }
+
+  .btn-3d-primary {
+    background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+    border-color: #0369a1;
+    box-shadow: 0 6px 0 #0369a1, 0 12px 24px rgba(2, 132, 199, 0.25);
+  }
+  .btn-3d-primary:active { box-shadow: 0 2px 0 #0369a1; }
+
+  .btn-3d-tiktok {
+    background: linear-gradient(180deg, #f43f5e 0%, #be185d 100%);
+    border-color: #831843;
+    box-shadow: 0 6px 0 #831843, 0 12px 24px rgba(190, 24, 93, 0.25);
+  }
+  .btn-3d-tiktok:active { box-shadow: 0 2px 0 #831843; }
+
+  /* セクション共通見出し */
+  .section-wrap {
+    margin-bottom: 84px;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 2px solid #7dd3fc;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 3px 14px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    color: var(--ink-sub);
+    font-size: 0.94rem;
+    font-weight: 700;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* 🎮 2. 4大タイトル・ラインナップ */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .game-card {
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 26px;
+    border: 3.5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .game-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .game-card.bio {
+    border-color: #10b981;
+    box-shadow: 0 8px 0 #047857, 0 18px 32px rgba(16, 185, 129, 0.15);
+  }
+  .game-card.lab {
+    border-color: #0ea5e9;
+    box-shadow: 0 8px 0 #0369a1, 0 18px 32px rgba(14, 165, 233, 0.15);
+  }
+  .game-card.battle {
+    border-color: #ef4444;
+    box-shadow: 0 8px 0 #b91c1c, 0 18px 32px rgba(239, 68, 68, 0.15);
+  }
+  .game-card.casino {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 0 #b45309, 0 18px 32px rgba(245, 158, 11, 0.15);
+  }
+
+  .game-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .game-icon-frame {
+    width: 82px;
+    height: 82px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.2);
+    border: 2.5px solid rgba(255, 255, 255, 0.9);
+    background: #0f172a;
+  }
+
+  .game-icon-frame img,
+  .game-icon-frame svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .game-role-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+
+  .bio .game-role-badge { background: linear-gradient(135deg, #0284c7, #059669); }
+  .lab .game-role-badge { background: linear-gradient(135deg, #06b6d4, #6366f1); }
+  .battle .game-role-badge { background: linear-gradient(135deg, #dc2626, #f97316); }
+  .casino .game-role-badge { background: linear-gradient(135deg, #9333ea, #d97706); }
+
+  .game-title {
+    font-size: 1.42rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .game-catch {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--ink-sub);
+    margin-top: 3px;
+  }
+
+  .game-points {
+    list-style: none;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  .game-points li::before {
+    content: '✔ ';
+    font-weight: 900;
+  }
+  .bio .game-points li::before { color: #059669; }
+  .lab .game-points li::before { color: #0284c7; }
+  .battle .game-points li::before { color: #dc2626; }
+  .casino .game-points li::before { color: #d97706; }
+
+  .btn-official-site {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: 14px;
+    font-size: 0.98rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    border: 2.5px solid;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+
+  .btn-official-site:hover { transform: translateY(-2px); }
+  .btn-official-site:active { transform: translateY(2px); }
+
+  .bio .btn-official-site {
+    background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+    border-color: #065f46;
+    box-shadow: 0 5px 0 #065f46;
+  }
+  .lab .btn-official-site {
+    background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+    border-color: #075985;
+    box-shadow: 0 5px 0 #075985;
+  }
+  .battle .btn-official-site {
+    background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
+    border-color: #991b1b;
+    box-shadow: 0 5px 0 #991b1b;
+  }
+  .casino .btn-official-site {
+    background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+    border-color: #92400e;
+    box-shadow: 0 5px 0 #92400e;
+    color: #1e1b4b;
+  }
+
+  /* 🔄 3. ロジカ・エコシステム */
+  .eco-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .eco-flow-card {
+    background: #ffffff;
+    border: 3px solid #cbd5e1;
+    box-shadow: 0 6px 0 #cbd5e1;
+    border-radius: 22px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .eco-flow-icons {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .eco-flow-arrow {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #0284c7;
+  }
+
+  .eco-flow-card h3 {
+    font-size: 1.08rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .eco-flow-card p {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-sub);
+    line-height: 1.6;
+  }
+
+  /* 📢 4. 横断ニュース */
+  .news-box {
+    background: #ffffff;
+    border: 3px solid #7dd3fc;
+    box-shadow: 0 8px 0 #bae6fd;
+    border-radius: 24px;
+    padding: 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .news-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    justify-content: center;
+  }
+
+  .news-tab-btn {
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    color: var(--ink-sub);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+
+  .news-tab-btn.active {
+    background: #0284c7;
+    border-color: #0369a1;
+    color: #fff;
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .news-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    flex-wrap: wrap;
+  }
+
+  .news-date {
+    font-size: 0.78rem;
+    font-weight: 900;
+    color: #64748b;
+    flex-shrink: 0;
+  }
+
+  .news-tag {
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 999px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .news-tag.bio { background: #059669; }
+  .news-tag.lab { background: #0284c7; }
+  .news-tag.battle { background: #dc2626; }
+  .news-tag.casino { background: #d97706; }
+
+  .news-text {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--ink);
+    flex: 1;
+    min-width: 220px;
+  }
+
+  /* 🎵 5. 公式TikTokバナー */
+  .tiktok-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #3b0764 60%, #831843 100%);
+    border: 4px solid #f43f5e;
+    box-shadow: 0 10px 0 #881337, 0 20px 38px rgba(15, 23, 42, 0.25);
+    border-radius: 28px;
+    padding: 36px 28px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tiktok-banner-info {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .tiktok-banner-info h3 {
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .tiktok-banner-info p {
+    font-size: 0.92rem;
+    color: #fce7f3;
+    font-weight: 700;
+    line-height: 1.65;
+  }
+
+  /* 🛡️ 6. 4大安心ポリシー */
+  .policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .policy-card {
+    background: #ffffff;
+    border: 3px solid #e2e8f0;
+    box-shadow: 0 5px 0 #cbd5e1;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .policy-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+
+  .policy-card h4 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .policy-card p {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink-sub);
+    line-height: 1.55;
+  }
+
+  /* 📩 フッター */
+  .footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 46px 20px;
+    text-align: center;
+    border-top: 4px solid #38bdf8;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+
+  .footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+  }
+  .footer-links a:hover { color: #38bdf8; }
+
+  .copyright {
+    font-size: 0.76rem;
+    color: #64748b;
+    font-weight: 700;
+  }
+
+  /* 💬 公式サイト準備中モーダル（まだ個別紹介サイトがないタイトル用） */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+  }
+
+  .modal-backdrop.open { display: flex; }
+
+  .modal-card {
+    background: #ffffff;
+    border: 4px solid #38bdf8;
+    box-shadow: 0 10px 0 #0284c7, 0 24px 48px rgba(0, 0, 0, 0.4);
+    border-radius: 26px;
+    max-width: 440px;
+    width: 100%;
+    padding: 28px 24px;
+    text-align: center;
+    animation: popIn 0.2s ease-out;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @media (max-width: 820px) {
+    .games-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-quick-nav { display: flex; }
+    .hero-mini-icon { width: 54px; height: 54px; border-radius: 14px; }
+    .hero-center-icon { width: 92px; height: 92px; border-radius: 22px; }
+    .hero-icons-stage { gap: 10px; }
+    .tiktok-banner { text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-dots"></div>
+
+<!-- 🌟 ナビゲーション -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="brand">
+      <img id="navPortalIcon" class="brand-icon-img" alt="LOGICA PORTAL アイコン">
+      <div class="brand-title-wrap">
+        <span class="brand-name">LOGICA PORTAL</span>
+        <span class="brand-sub">ロジカ・シリーズ総合公式サイト</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#games">ゲーム一覧</a></li>
+      <li><a href="#ecosystem">繋がる仕組み</a></li>
+      <li><a href="#news">最新ニュース</a></li>
+      <li><a href="#policy">安心設計</a></li>
+      <li><a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-nav-tiktok">🎵 TikTok</a></li>
+    </ul>
+  </div>
+  <nav class="mobile-quick-nav" aria-label="クイックナビ">
+    <a href="#games">🎮 ゲーム一覧</a>
+    <a href="#ecosystem">🔄 繋がる仕組み</a>
+    <a href="#news">📢 最新ニュース</a>
+    <a href="#tiktok">🎵 TikTok</a>
+    <a href="#policy">🛡️ 安心設計</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 🚀 ヒーローセクション -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <span>✨ 完全無料・登録不要・ブラウザで動く4大Webゲーム総合ポータル</span>
+      </div>
+
+      <!-- 5大立体アイコンステージ -->
+      <div class="hero-icons-stage">
+        <div class="hero-mini-icon" title="バイオ・ロジカ">
+          <!-- バイオ・ロジカ 公式SVGアイコン -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <defs>
+              <linearGradient id="heroBioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/><stop offset="30%" stop-color="#0ea5e9"/>
+                <stop offset="70%" stop-color="#0d9488"/><stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+              <linearGradient id="heroBlueStrand" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7dd3fc"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+              <linearGradient id="heroPinkStrand" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fb7185"/><stop offset="50%" stop-color="#f43f5e"/><stop offset="100%" stop-color="#e11d48"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="512" height="512" fill="url(#heroBioBg)"/>
+            <rect x="0" y="0" width="512" height="256" fill="white" opacity="0.08"/>
+            <g transform="translate(256, 256) rotate(-35) translate(-256, -256)">
+              <line x1="220" y1="130" x2="250" y2="130" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <line x1="250" y1="130" x2="292" y2="130" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="195" y1="180" x2="240" y2="180" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <line x1="240" y1="180" x2="317" y2="180" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="210" y1="230" x2="256" y2="230" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <line x1="256" y1="230" x2="302" y2="230" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="220" y1="280" x2="256" y2="280" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="256" y1="280" x2="292" y2="280" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <line x1="195" y1="330" x2="256" y2="330" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="256" y1="330" x2="317" y2="330" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <line x1="220" y1="380" x2="256" y2="380" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+              <line x1="256" y1="380" x2="292" y2="380" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+              <path d="M 292 110 C 330 180, 330 220, 256 256 C 182 292, 182 340, 220 402" fill="none" stroke="url(#heroPinkStrand)" stroke-width="26" stroke-linecap="round" opacity="0.95"/>
+              <path d="M 220 110 C 182 170, 182 220, 256 256 C 330 292, 330 340, 292 402" fill="none" stroke="url(#heroBlueStrand)" stroke-width="26" stroke-linecap="round"/>
+              <path d="M 220 110 C 182 170, 182 220, 256 256 C 330 292, 330 340, 292 402" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-mini-icon" title="ラボ・ロジカ"><img id="heroLabIcon" alt="ラボ・ロジカ"></div>
+        <div class="hero-center-icon" title="LOGICA PORTAL"><img id="heroPortalIcon" alt="LOGICA PORTAL"></div>
+        <div class="hero-mini-icon" title="バトル・ロジカ"><img id="heroBattleIcon" alt="バトル・ロジカ"></div>
+        <div class="hero-mini-icon" title="カジノ・ロジカ"><img id="heroCasinoIcon" alt="カジノ・ロジカ"></div>
+      </div>
+
+      <h1 class="hero-title">
+        あそべ、理系脳。<br>
+        <span class="accent">きわめろ、ロジック。</span>
+      </h1>
+
+      <p class="hero-sub">
+        実験・育成・バトル・息抜き。<br>
+        勉強がそのまま最強の力に変わる、新世代Webゲームポータル。
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#games" class="btn-3d btn-3d-primary">🎮 4大タイトルを見る</a>
+        <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-tiktok">🎵 公式TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎮 4大タイトル・ラインナップ -->
+  <section id="games" class="container section-wrap">
+    <div class="section-head">
+      <span class="section-badge">LINEUP</span>
+      <h2 class="section-title">ロジカ・シリーズ 4大タイトル</h2>
+      <p class="section-desc">気になるタイトルの公式サイトをチェックして、ゲームの世界へ飛び込もう！</p>
+    </div>
+
+    <div class="games-grid">
+      <!-- 1. バイオ・ロジカ -->
+      <article class="game-card bio">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <defs>
+                  <linearGradient id="cardBioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0284c7"/><stop offset="30%" stop-color="#0ea5e9"/>
+                    <stop offset="70%" stop-color="#0d9488"/><stop offset="100%" stop-color="#059669"/>
+                  </linearGradient>
+                  <linearGradient id="cardBlueStrand" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7dd3fc"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0284c7"/>
+                  </linearGradient>
+                  <linearGradient id="cardPinkStrand" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fb7185"/><stop offset="50%" stop-color="#f43f5e"/><stop offset="100%" stop-color="#e11d48"/>
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="512" height="512" fill="url(#cardBioBg)"/>
+                <rect x="0" y="0" width="512" height="256" fill="white" opacity="0.08"/>
+                <g transform="translate(256, 256) rotate(-35) translate(-256, -256)">
+                  <line x1="220" y1="130" x2="250" y2="130" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="250" y1="130" x2="292" y2="130" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="195" y1="180" x2="240" y2="180" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="240" y1="180" x2="317" y2="180" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="210" y1="230" x2="256" y2="230" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="256" y1="230" x2="302" y2="230" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="220" y1="280" x2="256" y2="280" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="256" y1="280" x2="292" y2="280" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="195" y1="330" x2="256" y2="330" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="256" y1="330" x2="317" y2="330" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="220" y1="380" x2="256" y2="380" stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+                  <line x1="256" y1="380" x2="292" y2="380" stroke="#f43f5e" stroke-width="14" stroke-linecap="round"/>
+                  <path d="M 292 110 C 330 180, 330 220, 256 256 C 182 292, 182 340, 220 402" fill="none" stroke="url(#cardPinkStrand)" stroke-width="26" stroke-linecap="round" opacity="0.95"/>
+                  <path d="M 220 110 C 182 170, 182 220, 256 256 C 330 292, 330 340, 292 402" fill="none" stroke="url(#cardBlueStrand)" stroke-width="26" stroke-linecap="round"/>
+                  <path d="M 220 110 C 182 170, 182 220, 256 256 C 330 292, 330 340, 292 402" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <span class="game-role-badge">知識育成 ＆ 思考対戦</span>
+              <h3 class="game-title">バイオ・ロジカ</h3>
+              <p class="game-catch">微生物育成 × 大学・高校入試クイズバトル</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>全20種族×5段階進化＋超越ランク【XR】【MR】搭載</li>
+            <li>高校理系・英語1900・中学高校受験の膨大な問題プール</li>
+            <li>全国オンライン対戦＆フレンド直接招待バトル完備</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('bio')">
+          <span>📖 バイオ・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 2. ラボ・ロジカ -->
+      <article class="game-card lab">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardLabIcon" alt="ラボ・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">バーチャル実験室</span>
+              <h3 class="game-title">ラボ・ロジカ</h3>
+              <p class="game-catch">60fps高校理科シミュレーター × 全69実験</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>化学30・生物18・物理21の高校理科全69実験を体験</li>
+            <li>PV風60fpsオフライン動画プレイヤー＆器具図鑑完備</li>
+            <li>ふりがな・文字サイズ・ダークテーマ対応で快適学習</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('lab')">
+          <span>📖 ラボ・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 3. バトル・ロジカ -->
+      <article class="game-card battle">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardBattleIcon" alt="バトル・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">横スクロール戦略バトル</span>
+              <h3 class="game-title">バトル・ロジカ</h3>
+              <p class="game-catch">細胞軍団出撃 × 属性特効タワーディフェンス</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>ストーリー全10章100ステージ＋進化コア段階解放</li>
+            <li>敵5属性（細菌・ウイルス・真菌等）× 特効相性戦略</li>
+            <li>「種族×ランク」別個体＆スマホ縦持ち横画面対応</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('battle')">
+          <span>📖 バトル・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 4. カジノ・ロジカ -->
+      <article class="game-card casino">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardCasinoIcon" alt="カジノ・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">息抜き ＆ 頭脳テーブルゲーム</span>
+              <h3 class="game-title">カジノ・ロジカ</h3>
+              <p class="game-catch">課金要素ゼロ × 破産したら勉強で復活！</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>チンチロ・ヨット・BJ・ポーカー・スロット・麻雀等全8種</li>
+            <li>AI対戦・1台交互対戦・4桁通信ルーム＆ランキング</li>
+            <li>所持チップ0で『バイオ・ロジカ』出稼ぎ勉強が解放！</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('casino')">
+          <span>📖 カジノ・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+    </div>
+  </section>
+
+  <!-- 🔄 3. ロジカ・エコシステム -->
+  <section id="ecosystem" class="container section-wrap">
+    <div class="section-head">
+      <span class="section-badge">ECOSYSTEM</span>
+      <h2 class="section-title">4つのゲームが繋がる「ロジカの仕組み」</h2>
+      <p class="section-desc">ただ遊ぶだけじゃない。ひとつの体験が、別のゲームの強さや楽しさに直結する！</p>
+    </div>
+
+    <div class="eco-flow-grid">
+      <div class="eco-flow-card">
+        <div class="eco-flow-icons">
+          <span>🎰</span><span class="eco-flow-arrow">➔</span><span>🧬</span>
+        </div>
+        <h3>息抜きで破産 ➔ 勉強で復活！</h3>
+        <p>『カジノ・ロジカ』でチップが0になっても大丈夫。『バイオ・ロジカ』でクイズを解けばチップを稼いで復活できる！</p>
+      </div>
+
+      <div class="eco-flow-card">
+        <div class="eco-flow-icons">
+          <span>🔬</span><span class="eco-flow-arrow">➔</span><span>🧬</span>
+        </div>
+        <h3>実験で理解 ➔ クイズで無双！</h3>
+        <p>『ラボ・ロジカ』の60fps実験アニメで現象を目で見て理解すると、『バイオ・ロジカ』の入試理科問題がスラスラ解ける！</p>
+      </div>
+
+      <div class="eco-flow-card">
+        <div class="eco-flow-icons">
+          <span>🧬</span><span class="eco-flow-arrow">➔</span><span>⚔️</span>
+        </div>
+        <h3>お馴染みの細胞が軍団出撃！</h3>
+        <p>『バイオ・ロジカ』の微生物＆免疫細胞たちが、『バトル・ロジカ』では横スクロール戦場で大暴れ！</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📢 4. 横断ニュース -->
+  <section id="news" class="container section-wrap">
+    <div class="section-head">
+      <span class="section-badge">NEWS &amp; UPDATES</span>
+      <h2 class="section-title">全タイトル 最新アップデート情報</h2>
+      <p class="section-desc">シリーズ各作品の最新アップデートをチェックしよう。</p>
+    </div>
+
+    <div class="news-box">
+      <div class="news-tabs">
+        <button type="button" class="news-tab-btn active" onclick="filterNews('all', this)">すべて</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('bio', this)">🧬 バイオ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('lab', this)">🔬 ラボ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('battle', this)">⚔️ バトル</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('casino', this)">🎰 カジノ</button>
+      </div>
+      <div class="news-list" id="newsList">
+        <div class="news-item" data-cat="battle">
+          <span class="news-date">2026-11-23</span>
+          <span class="news-tag battle">バトル</span>
+          <span class="news-text">ストーリー全10章（100ステージ）＆「種族×ランク」別個体・ATP/DNAメダル還元機能を実装！</span>
+        </div>
+        <div class="news-item" data-cat="casino">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag casino">カジノ</span>
+          <span class="news-text">Firebase通信ルーム・実プレイヤーランキング＆賭け勝負・0チップ時バイオ出稼ぎ連動を実装！</span>
+        </div>
+        <div class="news-item" data-cat="lab">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag lab">ラボ</span>
+          <span class="news-text">高校理科全69実験の60fps Canvasアニメ＆PV風オフライン動画プレイヤーを実装し公開！</span>
+        </div>
+        <div class="news-item" data-cat="bio">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag bio">バイオ</span>
+          <span class="news-text">超越ランク【XR】【MR】進化＆ゲノム合成ラボ実装！さらに全教科480問超の問題プールを強化！</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎵 5. 公式TikTok -->
+  <section id="tiktok" class="container section-wrap">
+    <div class="tiktok-banner">
+      <div class="tiktok-banner-info">
+        <h3>🎵 ロジカ公式 TikTok チャンネル</h3>
+        <p>最新情報やシリーズの魅力を発信中！フォローしてチェックしよう。</p>
+      </div>
+      <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-tiktok">
+        <span>🎬 TikTokを開く ➔</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 🛡️ 6. 4大安心ポリシー -->
+  <section id="policy" class="container section-wrap">
+    <div class="section-head">
+      <span class="section-badge">SAFE &amp; FREE</span>
+      <h2 class="section-title">誰でも安心の4大設計</h2>
+    </div>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <div class="policy-icon">🆓</div>
+        <h4>完全無料・課金ゼロ</h4>
+        <p>課金要素は一切なし。ガチャも強化もゲーム内プレイだけで楽しめます。</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">⚡</div>
+        <h4>インストール不要</h4>
+        <p>スマホでもPCでも、ブラウザを開くだけですぐに遊べます。</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🔒</div>
+        <h4>面倒な登録不要</h4>
+        <p>メールアドレスや個人情報の登録なしで、開いた瞬間からスタート。</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">📚</div>
+        <h4>本格学習ベース</h4>
+        <p>中高生・大学受験レベルの理系知識や英語が楽しく身につきます。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 📩 フッター -->
+<footer class="footer">
+  <div class="container">
+    <div style="font-size:1.2rem; font-weight:900; color:#fff;">LOGICA PORTAL</div>
+    <p style="font-size:0.82rem; color:#94a3b8; margin-top:4px;">あそべ、理系脳。きわめろ、ロジック。</p>
+    <div class="footer-links">
+      <a href="#games">ゲーム一覧</a>
+      <a href="#ecosystem">繋がる仕組み</a>
+      <a href="#news">最新ニュース</a>
+      <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer">公式TikTok</a>
+    </div>
+    <div class="copyright">&copy; 2026 LOGICA Project. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- 💬 個別公式サイト 準備中モーダル（ラボ・バトル・カジノの個別公式サイト完成までの案内） -->
+<div class="modal-backdrop" id="officialModal" onclick="if(event.target===this) closeOfficialModal()">
+  <div class="modal-card">
+    <div style="font-size:2.4rem; margin-bottom:8px;" id="modalEmoji">🔧</div>
+    <h3 style="font-size:1.25rem; font-weight:900; color:#0f172a; margin-bottom:8px;" id="modalTitle">公式サイト 準備中</h3>
+    <p style="font-size:0.88rem; font-weight:700; color:#475569; line-height:1.65; margin-bottom:20px;" id="modalDesc"></p>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <a href="#" target="_blank" rel="noopener noreferrer" id="modalFallbackLink" class="btn-3d btn-3d-primary" style="width:100%; font-size:0.95rem;">
+        <span>🚀 現在の公開ページを開く</span>
+      </a>
+      <button type="button" onclick="closeOfficialModal()" style="background:#f1f5f9; border:2px solid #cbd5e1; color:#475569; padding:10px; border-radius:12px; font-weight:900; cursor:pointer; font-family:inherit;">
+        閉じる
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================================
+   1. 5大アイコン 高画質Canvas描画エンジン（各icon.htmlから統合）
+============================================================================ */
+function drawSparkle(ctx, x, y, r, color) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(0, -r);
+  ctx.quadraticCurveTo(0, 0, r, 0);
+  ctx.quadraticCurveTo(0, 0, 0, r);
+  ctx.quadraticCurveTo(0, 0, -r, 0);
+  ctx.quadraticCurveTo(0, 0, 0, -r);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+
+function fillQuad(ctx, a, b, c, d, fillStyle) {
+  ctx.beginPath();
+  ctx.moveTo(a.x, a.y);
+  ctx.lineTo(b.x, b.y);
+  ctx.lineTo(c.x, c.y);
+  ctx.lineTo(d.x, d.y);
+  ctx.closePath();
+  ctx.fillStyle = fillStyle;
+  ctx.fill();
+}
+
+function clipRoundedIcon(ctx, W, H, R) {
+  ctx.beginPath();
+  ctx.moveTo(R, 0);
+  ctx.lineTo(W - R, 0);
+  ctx.quadraticCurveTo(W, 0, W, R);
+  ctx.lineTo(W, H - R);
+  ctx.quadraticCurveTo(W, H, W - R, H);
+  ctx.lineTo(R, H);
+  ctx.quadraticCurveTo(0, H, 0, H - R);
+  ctx.lineTo(0, R);
+  ctx.quadraticCurveTo(0, 0, R, 0);
+  ctx.closePath();
+  ctx.clip();
+}
+
+/* 🌐 ロジカ・ポータル アイコン生成（icon.html 完全再現） */
+function drawWatermarkDNA(ctx, cx, cy, angleDeg, scale, alpha) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(angleDeg * Math.PI / 180);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = '#67e8f9';
+  ctx.lineCap = 'round';
+  const h = 110, amp = 26;
+  ctx.lineWidth = 8;
+  for (let s = -1; s <= 1; s += 2) {
+    ctx.beginPath();
+    for (let i = 0; i <= 24; i++) {
+      const t = i / 24;
+      const y = -h / 2 + t * h;
+      const x = Math.sin(t * Math.PI * 2) * amp * s;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+  ctx.lineWidth = 5;
+  [0.15, 0.35, 0.65, 0.85].forEach(t => {
+    const y = -h / 2 + t * h;
+    const x = Math.sin(t * Math.PI * 2) * amp;
+    ctx.beginPath();
+    ctx.moveTo(-x, y);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
+function drawWatermarkTube(ctx, cx, cy, angleDeg, scale, alpha) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(angleDeg * Math.PI / 180);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = '#c4b5fd';
+  ctx.fillStyle = '#c4b5fd';
+  ctx.lineWidth = 7;
+  ctx.beginPath();
+  ctx.moveTo(-22, -52);
+  ctx.lineTo(-22, 34);
+  ctx.arc(0, 34, 22, Math.PI, 0, true);
+  ctx.lineTo(22, -52);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.roundRect(-30, -62, 60, 11, 5.5);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(-16, 4);
+  ctx.lineTo(-16, 34);
+  ctx.arc(0, 34, 16, Math.PI, 0, true);
+  ctx.lineTo(16, 4);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawWatermarkSwords(ctx, cx, cy, scale, alpha) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = '#fca5a5';
+  ctx.fillStyle = '#fca5a5';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.moveTo(0, -48);
+  ctx.lineTo(40, -34);
+  ctx.lineTo(40, 2);
+  ctx.quadraticCurveTo(40, 36, 0, 54);
+  ctx.quadraticCurveTo(-40, 36, -40, 2);
+  ctx.lineTo(-40, -34);
+  ctx.closePath();
+  ctx.stroke();
+  [-42, 42].forEach(deg => {
+    ctx.save();
+    ctx.rotate(deg * Math.PI / 180);
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo(0, -56);
+    ctx.lineTo(0, 46);
+    ctx.stroke();
+    ctx.lineWidth = 7;
+    ctx.beginPath();
+    ctx.moveTo(-18, 22);
+    ctx.lineTo(18, 22);
+    ctx.stroke();
+    ctx.restore();
+  });
+  ctx.restore();
+}
+
+function drawWatermarkDice(ctx, cx, cy, scale, alpha) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = '#fde047';
+  ctx.fillStyle = '#fde047';
+  ctx.lineWidth = 6;
+  ctx.lineJoin = 'round';
+  const s = 54, c30 = Math.cos(Math.PI / 6), s30 = Math.sin(Math.PI / 6);
+  ctx.beginPath();
+  ctx.moveTo(0, -s);
+  ctx.lineTo(s * c30, -s * s30);
+  ctx.lineTo(s * c30, s * s30);
+  ctx.lineTo(0, s);
+  ctx.lineTo(-s * c30, s * s30);
+  ctx.lineTo(-s * c30, -s * s30);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-s * c30, -s * s30);
+  ctx.lineTo(0, 0);
+  ctx.lineTo(s * c30, -s * s30);
+  ctx.moveTo(0, 0);
+  ctx.lineTo(0, s);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(0, -s * 0.5, 9, 6, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function createPortalIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#090d16');
+  bgGrad.addColorStop(0.45, '#172554');
+  bgGrad.addColorStop(1.0, '#1e1b4b');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  [
+    [280, 290, 380, 'rgba(6, 182, 212, 0.34)'],
+    [740, 290, 360, 'rgba(168, 85, 247, 0.32)'],
+    [300, 750, 360, 'rgba(239, 68, 68, 0.28)'],
+    [720, 730, 380, 'rgba(234, 179, 8, 0.32)']
+  ].forEach(([gx, gy, gr, col]) => {
+    const g = ctx.createRadialGradient(gx, gy, 20, gx, gy, gr);
+    g.addColorStop(0.0, col);
+    g.addColorStop(1.0, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  });
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(W / 2, H / 2, 360, 0, Math.PI * 2);
+  const ringGrad = ctx.createLinearGradient(150, 150, 874, 874);
+  ringGrad.addColorStop(0.0, 'rgba(56, 189, 248, 0.45)');
+  ringGrad.addColorStop(0.35, 'rgba(168, 85, 247, 0.35)');
+  ringGrad.addColorStop(0.7, 'rgba(244, 63, 94, 0.35)');
+  ringGrad.addColorStop(1.0, 'rgba(250, 204, 21, 0.45)');
+  ctx.strokeStyle = ringGrad;
+  ctx.lineWidth = 8;
+  ctx.stroke();
+  ctx.restore();
+
+  const glossGrad = ctx.createLinearGradient(0, 0, 0, H * 0.45);
+  glossGrad.addColorStop(0.0, 'rgba(255, 255, 255, 0.16)');
+  glossGrad.addColorStop(1.0, 'rgba(255, 255, 255, 0.0)');
+  ctx.fillStyle = glossGrad;
+  ctx.fillRect(0, 0, W, H * 0.45);
+
+  // Lの周囲に各シリーズのモチーフをうすく散りばめる
+  drawWatermarkDNA(ctx, 198, 250, -28, 1.0, 0.18);
+  drawWatermarkTube(ctx, 685, 255, 24, 1.0, 0.18);
+  drawWatermarkSwords(ctx, 192, 545, 1.0, 0.18);
+  drawWatermarkDice(ctx, 785, 455, 1.0, 0.18);
+  drawWatermarkDice(ctx, 560, 175, 0.62, 0.11);
+  drawWatermarkSwords(ctx, 825, 285, 0.62, 0.11);
+  drawWatermarkTube(ctx, 615, 835, -20, 0.65, 0.11);
+  drawWatermarkDNA(ctx, 210, 795, 32, 0.65, 0.11);
+
+  const P = [
+    { x: 306, y: 236 }, { x: 446, y: 236 }, { x: 446, y: 586 },
+    { x: 676, y: 586 }, { x: 676, y: 726 }, { x: 306, y: 726 }
+  ];
+  const Q = P.map(pt => ({ x: pt.x + 62, y: pt.y + 56 }));
+
+  // 3D押し出し全体のドロップシャドウ
+  ctx.save();
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.72)';
+  ctx.shadowBlur = 44;
+  ctx.shadowOffsetX = 16;
+  ctx.shadowOffsetY = 28;
+  ctx.beginPath();
+  ctx.moveTo(Q[0].x, Q[0].y);
+  for (let i = 1; i < Q.length; i++) ctx.lineTo(Q[i].x, Q[i].y);
+  ctx.closePath();
+  ctx.fillStyle = '#0f172a';
+  ctx.fill();
+  ctx.restore();
+
+  const s1 = ctx.createLinearGradient(P[1].x, P[1].y, Q[2].x, Q[2].y);
+  s1.addColorStop(0.0, '#38bdf8'); s1.addColorStop(0.6, '#6366f1'); s1.addColorStop(1.0, '#7c3aed');
+  fillQuad(ctx, P[1], Q[1], Q[2], P[2], s1);
+
+  const tb = ctx.createLinearGradient(P[2].x, P[2].y, Q[3].x, Q[3].y);
+  tb.addColorStop(0.0, '#a855f7'); tb.addColorStop(1.0, '#ec4899');
+  fillQuad(ctx, P[2], Q[2], Q[3], P[3], tb);
+
+  const s2 = ctx.createLinearGradient(P[3].x, P[3].y, Q[4].x, Q[4].y);
+  s2.addColorStop(0.0, '#f43f5e'); s2.addColorStop(1.0, '#f59e0b');
+  fillQuad(ctx, P[3], Q[3], Q[4], P[4], s2);
+
+  const bg3 = ctx.createLinearGradient(P[5].x, P[5].y, Q[4].x, Q[4].y);
+  bg3.addColorStop(0.0, '#0284c7'); bg3.addColorStop(0.5, '#6366f1'); bg3.addColorStop(1.0, '#d97706');
+  fillQuad(ctx, P[5], P[4], Q[4], Q[5], bg3);
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(P[0].x, P[0].y);
+  for (let i = 1; i < P.length; i++) ctx.lineTo(P[i].x, P[i].y);
+  ctx.closePath();
+  const fg = ctx.createLinearGradient(P[0].x, P[0].y, P[4].x, P[4].y);
+  fg.addColorStop(0.0, '#ffffff'); fg.addColorStop(0.45, '#f1f5f9'); fg.addColorStop(1.0, '#cbd5e1');
+  ctx.fillStyle = fg;
+  ctx.fill();
+  ctx.clip();
+  ctx.beginPath();
+  ctx.moveTo(260, 420); ctx.lineTo(540, 180); ctx.lineTo(620, 260); ctx.lineTo(310, 520);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+  ctx.fill();
+  ctx.restore();
+
+  ctx.beginPath();
+  ctx.moveTo(P[0].x, P[0].y);
+  for (let i = 1; i < P.length; i++) ctx.lineTo(P[i].x, P[i].y);
+  ctx.closePath();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  drawSparkle(ctx, 225, 240, 24, 'rgba(56, 189, 248, 0.9)');
+  drawSparkle(ctx, 795, 250, 28, 'rgba(192, 132, 252, 0.9)');
+  drawSparkle(ctx, 790, 770, 24, 'rgba(250, 204, 21, 0.9)');
+  drawSparkle(ctx, 235, 765, 20, 'rgba(248, 113, 113, 0.85)');
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
+/* 🔬 ラボ・ロジカ アイコン生成 */
+function createLabIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#06b6d4');
+  bgGrad.addColorStop(0.45, '#2563eb');
+  bgGrad.addColorStop(1.0, '#7c3aed');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  const aura = ctx.createRadialGradient(W * 0.5, H * 0.54, 40, W * 0.5, H * 0.54, 420);
+  aura.addColorStop(0.0, 'rgba(52, 211, 153, 0.35)');
+  aura.addColorStop(0.5, 'rgba(56, 189, 248, 0.15)');
+  aura.addColorStop(1.0, 'rgba(124, 58, 237, 0.0)');
+  ctx.fillStyle = aura;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.save();
+  ctx.translate(W / 2 + 8, H / 2 + 12);
+  ctx.rotate(24 * Math.PI / 180);
+  const tubeW = 192, tubeH = 560, tubeR = 96, topY = -270, botY = 290;
+
+  ctx.beginPath();
+  ctx.moveTo(-tubeW / 2, topY + 20);
+  ctx.lineTo(-tubeW / 2, botY - tubeR);
+  ctx.arc(0, botY - tubeR, tubeR, Math.PI, 0, true);
+  ctx.lineTo(tubeW / 2, topY + 20);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.18)';
+  ctx.fill();
+
+  ctx.save();
+  const pad = 14, innerW = tubeW - pad * 2, innerR = innerW / 2;
+  ctx.beginPath();
+  ctx.moveTo(-innerW / 2, topY + 20);
+  ctx.lineTo(-innerW / 2, botY - tubeR);
+  ctx.arc(0, botY - tubeR, innerR, Math.PI, 0, true);
+  ctx.lineTo(innerW / 2, topY + 20);
+  ctx.closePath();
+  ctx.clip();
+
+  const liqGrad = ctx.createLinearGradient(0, -30, 0, botY);
+  liqGrad.addColorStop(0.0, '#6ee7b7');
+  liqGrad.addColorStop(0.35, '#10b981');
+  liqGrad.addColorStop(0.75, '#06b6d4');
+  liqGrad.addColorStop(1.0, '#0284c7');
+  ctx.fillStyle = liqGrad;
+  ctx.fillRect(-innerW / 2 - 4, -30, innerW + 8, botY + 40);
+
+  ctx.beginPath();
+  ctx.ellipse(0, -30, innerW / 2, 18, 0, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(209, 250, 229, 0.85)';
+  ctx.fill();
+
+  [[-24, 185, 16], [28, 130, 22], [-10, 65, 13], [20, 18, 10]].forEach(([bx, by, br]) => {
+    ctx.beginPath();
+    ctx.arc(bx, by, br, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.72)';
+    ctx.fill();
+  });
+  ctx.restore();
+
+  ctx.beginPath();
+  ctx.moveTo(-tubeW / 2, topY + 20);
+  ctx.lineTo(-tubeW / 2, botY - tubeR);
+  ctx.arc(0, botY - tubeR, tubeR, Math.PI, 0, true);
+  ctx.lineTo(tubeW / 2, topY + 20);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+  ctx.lineWidth = 16;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.roundRect(-124, topY - 12, 248, 42, 21);
+  ctx.fillStyle = '#f8fafc';
+  ctx.fill();
+  ctx.restore();
+
+  drawSparkle(ctx, 250, 290, 28, 'rgba(255, 255, 255, 0.85)');
+  drawSparkle(ctx, 770, 250, 22, 'rgba(167, 243, 208, 0.9)');
+  drawSparkle(ctx, 760, 740, 30, 'rgba(255, 255, 255, 0.8)');
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
+/* ⚔️ バトル・ロジカ アイコン生成 */
+function createBattleIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  function drawSword(angleDeg) {
+    ctx.save();
+    ctx.translate(512, 534);
+    ctx.rotate(angleDeg * Math.PI / 180);
+
+    ctx.beginPath();
+    ctx.moveTo(0, -370); ctx.lineTo(0, 118); ctx.lineTo(-30, 118); ctx.lineTo(-38, -280);
+    ctx.closePath();
+    ctx.fillStyle = '#f8fafc';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(0, -370); ctx.lineTo(38, -280); ctx.lineTo(30, 118); ctx.lineTo(0, 118);
+    ctx.closePath();
+    ctx.fillStyle = '#94a3b8';
+    ctx.fill();
+
+    const guardGrad = ctx.createLinearGradient(-112, 108, 112, 152);
+    guardGrad.addColorStop(0.0, '#b45309');
+    guardGrad.addColorStop(0.5, '#fde047');
+    guardGrad.addColorStop(1.0, '#92400e');
+    ctx.beginPath();
+    ctx.moveTo(-114, 118);
+    ctx.quadraticCurveTo(0, 96, 114, 118);
+    ctx.quadraticCurveTo(126, 134, 110, 148);
+    ctx.quadraticCurveTo(0, 136, -110, 148);
+    ctx.quadraticCurveTo(-126, 134, -114, 118);
+    ctx.closePath();
+    ctx.fillStyle = guardGrad;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.roundRect(-20, 144, 40, 114, 8);
+    ctx.fillStyle = '#451a03';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(0, 278, 32, 0, Math.PI * 2);
+    ctx.fillStyle = '#f59e0b';
+    ctx.fill();
+    ctx.restore();
+  }
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#7f1d1d');
+  bgGrad.addColorStop(0.45, '#dc2626');
+  bgGrad.addColorStop(1.0, '#f97316');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  // うっすら盾
+  ctx.save();
+  ctx.globalAlpha = 0.28;
+  ctx.beginPath();
+  ctx.moveTo(512, 165);
+  ctx.quadraticCurveTo(658, 193, 777, 227);
+  ctx.lineTo(777, 496);
+  ctx.bezierCurveTo(777, 646, 658, 795, 512, 855);
+  ctx.bezierCurveTo(366, 795, 247, 646, 247, 496);
+  ctx.lineTo(247, 227);
+  ctx.quadraticCurveTo(366, 193, 512, 165);
+  ctx.closePath();
+  ctx.fillStyle = '#e2e8f0';
+  ctx.fill();
+  ctx.globalAlpha = 0.45;
+  ctx.strokeStyle = '#fef08a';
+  ctx.lineWidth = 18;
+  ctx.stroke();
+  ctx.restore();
+
+  drawSword(-42);
+  drawSword(42);
+
+  const spark = ctx.createRadialGradient(512, 465, 2, 512, 465, 68);
+  spark.addColorStop(0.0, 'rgba(255, 255, 255, 0.85)');
+  spark.addColorStop(0.4, 'rgba(253, 224, 71, 0.45)');
+  spark.addColorStop(1.0, 'rgba(253, 224, 71, 0.0)');
+  ctx.fillStyle = spark;
+  ctx.beginPath();
+  ctx.arc(512, 465, 68, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
+/* 🎰 カジノ・ロジカ アイコン生成 */
+function createCasinoIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  function drawIsoPip(origin, axisU, axisV, u, v, radius, color) {
+    const px = origin.x + u * axisU.x + v * axisV.x;
+    const py = origin.y + u * axisU.y + v * axisV.y;
+    ctx.save();
+    ctx.translate(px, py);
+    ctx.transform(axisU.x / 100, axisU.y / 100, axisV.x / 100, axisV.y / 100, 0, 0);
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 100, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#4c1d95');
+  bgGrad.addColorStop(0.5, '#881337');
+  bgGrad.addColorStop(1.0, '#b45309');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  const cx = 512, cy = 528, S = 285;
+  const cos30 = Math.cos(Math.PI / 6), sin30 = Math.sin(Math.PI / 6);
+  const C  = { x: cx, y: cy };
+  const T  = { x: cx, y: cy - S };
+  const TR = { x: cx + S * cos30, y: cy - S * sin30 };
+  const BR = { x: cx + S * cos30, y: cy + S * sin30 };
+  const B  = { x: cx, y: cy + S };
+  const BL = { x: cx - S * cos30, y: cy + S * sin30 };
+  const TL = { x: cx - S * cos30, y: cy - S * sin30 };
+
+  ctx.beginPath();
+  ctx.moveTo(T.x, T.y); ctx.lineTo(TR.x, TR.y); ctx.lineTo(C.x, C.y); ctx.lineTo(TL.x, TL.y); ctx.closePath();
+  ctx.fillStyle = '#ffffff'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(TL.x, TL.y); ctx.lineTo(C.x, C.y); ctx.lineTo(B.x, B.y); ctx.lineTo(BL.x, BL.y); ctx.closePath();
+  ctx.fillStyle = '#e2e8f0'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(C.x, C.y); ctx.lineTo(TR.x, TR.y); ctx.lineTo(BR.x, BR.y); ctx.lineTo(B.x, B.y); ctx.closePath();
+  ctx.fillStyle = '#94a3b8'; ctx.fill();
+
+  const topOrigin = { x: (T.x + C.x) / 2, y: (T.y + C.y) / 2 };
+  const topU = { x: (TR.x - T.x) * 0.5, y: (TR.y - T.y) * 0.5 };
+  const topV = { x: (TL.x - T.x) * 0.5, y: (TL.y - T.y) * 0.5 };
+  drawIsoPip(topOrigin, topU, topV, 0, 0, 0.42, '#dc2626');
+
+  const leftOrigin = { x: (TL.x + B.x) / 2, y: (TL.y + B.y) / 2 };
+  const leftU = { x: (C.x - TL.x) * 0.5, y: (C.y - TL.y) * 0.5 };
+  const leftV = { x: (BL.x - TL.x) * 0.5, y: (BL.y - TL.y) * 0.5 };
+  drawIsoPip(leftOrigin, leftU, leftV, -0.5, -0.5, 0.21, '#1e293b');
+  drawIsoPip(leftOrigin, leftU, leftV,  0.0,  0.0, 0.21, '#1e293b');
+  drawIsoPip(leftOrigin, leftU, leftV,  0.5,  0.5, 0.21, '#1e293b');
+
+  const rightOrigin = { x: (C.x + BR.x) / 2, y: (C.y + BR.y) / 2 };
+  const rightU = { x: (TR.x - C.x) * 0.5, y: (TR.y - C.y) * 0.5 };
+  const rightV = { x: (B.x - C.x) * 0.5,  y: (B.y - C.y) * 0.5 };
+  [[-0.5,-0.5],[0.5,-0.5],[0,0],[-0.5,0.5],[0.5,0.5]].forEach(([u,v]) => {
+    drawIsoPip(rightOrigin, rightU, rightV, u, v, 0.20, '#1e293b');
+  });
+
+  drawSparkle(ctx, 225, 255, 30, 'rgba(253, 224, 71, 0.9)');
+  drawSparkle(ctx, 790, 235, 22, 'rgba(255, 255, 255, 0.85)');
+  drawSparkle(ctx, 795, 765, 28, 'rgba(253, 224, 71, 0.85)');
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
+/* ============================================================================
+   2. 公式サイト遷移＆ニュース絞り込み
+============================================================================ */
+function isLocalEnv() {
+  return window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+}
+
+const OFFICIAL_SITE_INFO = {
+  bio: {
+    emoji: '🧬',
+    title: 'バイオ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../バイオ・ロジカ/大事/intro.html',
+    webUrl: 'https://bio-labo.github.io/biologica/intro.html'
+  },
+  lab: {
+    emoji: '🔬',
+    title: 'ラボ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../ラボ・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/lab-logica/intro.html'
+  },
+  battle: {
+    emoji: '⚔️',
+    title: 'バトル・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../バトル・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/battle-logica/intro.html'
+  },
+  casino: {
+    emoji: '🎰',
+    title: 'カジノ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../カジノ・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/casino-logica/intro.html'
+  }
+};
+
+function openGameOfficialSite(key) {
+  const info = OFFICIAL_SITE_INFO[key];
+  if (!info) return;
+
+  if (info.ready) {
+    const targetUrl = isLocalEnv() ? info.localUrl : info.webUrl;
+    window.location.href = targetUrl;
+    return;
+  }
+
+  document.getElementById('modalEmoji').textContent = info.emoji;
+  document.getElementById('modalTitle').textContent = `${info.title}（準備中）`;
+  document.getElementById('modalDesc').textContent = info.desc;
+  document.getElementById('modalFallbackLink').href = info.fallbackUrl;
+  document.getElementById('officialModal').classList.add('open');
+}
+
+function closeOfficialModal() {
+  document.getElementById('officialModal').classList.remove('open');
+}
+
+function filterNews(cat, btn) {
+  document.querySelectorAll('.news-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  document.querySelectorAll('#newsList .news-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const portalUrl = createPortalIconDataUrl();
+  const labUrl = createLabIconDataUrl();
+  const battleUrl = createBattleIconDataUrl();
+  const casinoUrl = createCasinoIconDataUrl();
+
+  document.getElementById('navPortalIcon').src = portalUrl;
+  document.getElementById('heroPortalIcon').src = portalUrl;
+  document.getElementById('heroLabIcon').src = labUrl;
+  document.getElementById('cardLabIcon').src = labUrl;
+  document.getElementById('heroBattleIcon').src = battleUrl;
+  document.getElementById('cardBattleIcon').src = battleUrl;
+  document.getElementById('heroCasinoIcon').src = casinoUrl;
+  document.getElementById('cardCasinoIcon').src = casinoUrl;
+});
+</script>
+</body>
+</html>
