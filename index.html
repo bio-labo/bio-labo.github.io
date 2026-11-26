@@ -213,44 +213,65 @@
     margin-bottom: 26px;
   }
 
-  /* ポータル中心＋4大アイコン浮遊ステージ */
+  /* ポータル中心＋5大アイコン 3Dオービットステージ */
   .hero-icons-stage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin: 0 auto 28px;
-    flex-wrap: wrap;
-    max-width: 640px;
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    height: 230px;
+    margin: 0 auto 24px;
+    user-select: none;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 82%;
+    height: 126px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2.5px dashed rgba(14, 165, 233, 0.28);
+    box-shadow: inset 0 0 24px rgba(56, 189, 248, 0.08);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .hero-mini-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 68px;
     height: 68px;
     border-radius: 18px;
     border: 3px solid #ffffff;
-    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.22), 0 12px 24px rgba(15, 23, 42, 0.16);
+    box-shadow: 0 6px 0 rgba(15, 23, 42, 0.22), 0 12px 24px rgba(15, 23, 42, 0.22);
     overflow: hidden;
-    animation: floatSlow 3.6s ease-in-out infinite;
     background: #0f172a;
-    flex-shrink: 0;
+    cursor: pointer;
+    will-change: transform, opacity;
+    text-decoration: none;
+    display: block;
   }
 
-  .hero-mini-icon:nth-child(1) { animation-delay: 0s; }
-  .hero-mini-icon:nth-child(2) { animation-delay: 0.5s; }
-  .hero-mini-icon:nth-child(4) { animation-delay: 1.0s; }
-  .hero-mini-icon:nth-child(5) { animation-delay: 1.5s; }
+  .hero-mini-icon:hover {
+    box-shadow: 0 6px 0 #0284c7, 0 0 22px rgba(56, 189, 248, 0.65);
+  }
 
   .hero-center-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 112px;
     height: 112px;
     border-radius: 28px;
     border: 4px solid #ffffff;
     box-shadow: 0 10px 0 #1e1b4b, 0 18px 36px rgba(30, 27, 75, 0.35);
     overflow: hidden;
-    animation: floatCenter 4s ease-in-out infinite;
     background: #090d16;
-    flex-shrink: 0;
+    z-index: 10;
+    animation: floatCenter 4s ease-in-out infinite;
   }
 
   .hero-mini-icon img,
@@ -262,14 +283,9 @@
     object-fit: cover;
   }
 
-  @keyframes floatSlow {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-  }
-
   @keyframes floatCenter {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-10px) scale(1.03); }
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px) scale(1); }
+    50% { transform: translate(-50%, -50%) translateY(-6px) scale(1.03); }
   }
 
   .hero-title {
@@ -417,6 +433,18 @@
     border-color: #f59e0b;
     box-shadow: 0 8px 0 #b45309, 0 18px 32px rgba(245, 158, 11, 0.15);
   }
+  .game-card.academi {
+    border-color: #2563eb;
+    box-shadow: 0 8px 0 #1e3a8a, 0 18px 32px rgba(37, 99, 235, 0.18);
+  }
+  @media (min-width: 821px) {
+    .game-card.academi {
+      grid-column: 1 / -1;
+      max-width: 548px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 
   .game-card-top {
     display: flex;
@@ -457,6 +485,7 @@
   .lab .game-role-badge { background: linear-gradient(135deg, #06b6d4, #6366f1); }
   .battle .game-role-badge { background: linear-gradient(135deg, #dc2626, #f97316); }
   .casino .game-role-badge { background: linear-gradient(135deg, #9333ea, #d97706); }
+  .academi .game-role-badge { background: linear-gradient(135deg, #1d4ed8, #0ea5e9); }
 
   .game-title {
     font-size: 1.42rem;
@@ -494,6 +523,7 @@
   .lab .game-points li::before { color: #0284c7; }
   .battle .game-points li::before { color: #dc2626; }
   .casino .game-points li::before { color: #d97706; }
+  .academi .game-points li::before { color: #2563eb; }
 
   .btn-official-site {
     display: flex;
@@ -536,6 +566,11 @@
     border-color: #92400e;
     box-shadow: 0 5px 0 #92400e;
     color: #1e1b4b;
+  }
+  .academi .btn-official-site {
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+    border-color: #1e3a8a;
+    box-shadow: 0 5px 0 #1e3a8a;
   }
 
   /* 🔄 3. ロジカ・エコシステム */
@@ -658,6 +693,7 @@
   .news-tag.lab { background: #0284c7; }
   .news-tag.battle { background: #dc2626; }
   .news-tag.casino { background: #d97706; }
+  .news-tag.academi { background: #2563eb; }
 
   .news-text {
     font-size: 0.88rem;
@@ -805,9 +841,10 @@
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .mobile-quick-nav { display: flex; }
-    .hero-mini-icon { width: 54px; height: 54px; border-radius: 14px; }
-    .hero-center-icon { width: 92px; height: 92px; border-radius: 22px; }
-    .hero-icons-stage { gap: 10px; }
+    .hero-icons-stage { height: 195px; }
+    .orbit-ring { height: 98px; }
+    .hero-mini-icon { width: 52px; height: 52px; border-radius: 14px; }
+    .hero-center-icon { width: 88px; height: 88px; border-radius: 22px; }
     .tiktok-banner { text-align: center; justify-content: center; }
   }
 </style>
@@ -848,12 +885,14 @@
   <section class="hero-section">
     <div class="container">
       <div class="hero-pill">
-        <span>✨ 完全無料・登録不要・ブラウザで動く4大Webゲーム総合ポータル</span>
+        <span>✨ 完全無料・登録不要・ブラウザで動く5大Webゲーム総合ポータル</span>
       </div>
 
-      <!-- 5大立体アイコンステージ -->
-      <div class="hero-icons-stage">
-        <div class="hero-mini-icon" title="バイオ・ロジカ">
+      <!-- 6大立体アイコン 3Dオービットステージ -->
+      <div class="hero-icons-stage" id="heroOrbitStage">
+        <div class="orbit-ring"></div>
+        <div class="hero-center-icon" title="LOGICA PORTAL"><img id="heroPortalIcon" alt="LOGICA PORTAL"></div>
+        <a href="#card-bio" class="hero-mini-icon orbit-sat" title="バイオ・ロジカ">
           <!-- バイオ・ロジカ 公式SVGアイコン -->
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <defs>
@@ -888,11 +927,11 @@
               <path d="M 220 110 C 182 170, 182 220, 256 256 C 330 292, 330 340, 292 402" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
             </g>
           </svg>
-        </div>
-        <div class="hero-mini-icon" title="ラボ・ロジカ"><img id="heroLabIcon" alt="ラボ・ロジカ"></div>
-        <div class="hero-center-icon" title="LOGICA PORTAL"><img id="heroPortalIcon" alt="LOGICA PORTAL"></div>
-        <div class="hero-mini-icon" title="バトル・ロジカ"><img id="heroBattleIcon" alt="バトル・ロジカ"></div>
-        <div class="hero-mini-icon" title="カジノ・ロジカ"><img id="heroCasinoIcon" alt="カジノ・ロジカ"></div>
+        </a>
+        <a href="#card-lab" class="hero-mini-icon orbit-sat" title="ラボ・ロジカ"><img id="heroLabIcon" alt="ラボ・ロジカ"></a>
+        <a href="#card-battle" class="hero-mini-icon orbit-sat" title="バトル・ロジカ"><img id="heroBattleIcon" alt="バトル・ロジカ"></a>
+        <a href="#card-casino" class="hero-mini-icon orbit-sat" title="カジノ・ロジカ"><img id="heroCasinoIcon" alt="カジノ・ロジカ"></a>
+        <a href="#card-academi" class="hero-mini-icon orbit-sat" title="アカデミ・ロジカ"><img id="heroAcademiIcon" alt="アカデミ・ロジカ"></a>
       </div>
 
       <h1 class="hero-title">
@@ -901,28 +940,28 @@
       </h1>
 
       <p class="hero-sub">
-        実験・育成・バトル・息抜き。<br>
+        実験・育成・バトル・息抜き・大学学問。<br>
         勉強がそのまま最強の力に変わる、新世代Webゲームポータル。
       </p>
 
       <div class="hero-cta-row">
-        <a href="#games" class="btn-3d btn-3d-primary">🎮 4大タイトルを見る</a>
+        <a href="#games" class="btn-3d btn-3d-primary">🎮 5大タイトルを見る</a>
         <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-tiktok">🎵 公式TikTok</a>
       </div>
     </div>
   </section>
 
-  <!-- 🎮 4大タイトル・ラインナップ -->
+  <!-- 🎮 5大タイトル・ラインナップ -->
   <section id="games" class="container section-wrap">
     <div class="section-head">
       <span class="section-badge">LINEUP</span>
-      <h2 class="section-title">ロジカ・シリーズ 4大タイトル</h2>
+      <h2 class="section-title">ロジカ・シリーズ 5大タイトル</h2>
       <p class="section-desc">気になるタイトルの公式サイトをチェックして、ゲームの世界へ飛び込もう！</p>
     </div>
 
     <div class="games-grid">
       <!-- 1. バイオ・ロジカ -->
-      <article class="game-card bio">
+      <article id="card-bio" class="game-card bio">
         <div>
           <div class="game-card-top">
             <div class="game-icon-frame">
@@ -978,7 +1017,7 @@
       </article>
 
       <!-- 2. ラボ・ロジカ -->
-      <article class="game-card lab">
+      <article id="card-lab" class="game-card lab">
         <div>
           <div class="game-card-top">
             <div class="game-icon-frame"><img id="cardLabIcon" alt="ラボ・ロジカ"></div>
@@ -1000,7 +1039,7 @@
       </article>
 
       <!-- 3. バトル・ロジカ -->
-      <article class="game-card battle">
+      <article id="card-battle" class="game-card battle">
         <div>
           <div class="game-card-top">
             <div class="game-icon-frame"><img id="cardBattleIcon" alt="バトル・ロジカ"></div>
@@ -1022,7 +1061,7 @@
       </article>
 
       <!-- 4. カジノ・ロジカ -->
-      <article class="game-card casino">
+      <article id="card-casino" class="game-card casino">
         <div>
           <div class="game-card-top">
             <div class="game-icon-frame"><img id="cardCasinoIcon" alt="カジノ・ロジカ"></div>
@@ -1040,6 +1079,28 @@
         </div>
         <button type="button" class="btn-official-site" onclick="openGameOfficialSite('casino')">
           <span>📖 カジノ・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 5. アカデミ・ロジカ -->
+      <article id="card-academi" class="game-card academi">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardAcademiIcon" alt="アカデミ・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">大学学問先取り ＆ 日常あるある</span>
+              <h3 class="game-title">アカデミ・ロジカ</h3>
+              <p class="game-catch">5大ジャンル × 15学科 × 全450用語</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>「テスト前の掃除」など日常あるあるを大学の学問で解明</li>
+            <li>4段構成の先取り講義 ➔ シャッフル確認クイズの2段階学習</li>
+            <li>心理学・経済学・法学・AI・哲学など全450語の大学用語図鑑</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('academi')">
+          <span>📖 アカデミ・ロジカ 公式サイトを見る ➔</span>
         </button>
       </article>
     </div>
@@ -1095,8 +1156,14 @@
         <button type="button" class="news-tab-btn" onclick="filterNews('lab', this)">🔬 ラボ</button>
         <button type="button" class="news-tab-btn" onclick="filterNews('battle', this)">⚔️ バトル</button>
         <button type="button" class="news-tab-btn" onclick="filterNews('casino', this)">🎰 カジノ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('academi', this)">🎓 アカデミ</button>
       </div>
       <div class="news-list" id="newsList">
+        <div class="news-item" data-cat="academi">
+          <span class="news-date">2026-11-27</span>
+          <span class="news-tag academi">アカデミ</span>
+          <span class="news-text">5大ジャンル×15学科×全450用語！本格4段「大学先取り講義 ➔ クイズ」2ステップ学習システムを実装！</span>
+        </div>
         <div class="news-item" data-cat="battle">
           <span class="news-date">2026-11-23</span>
           <span class="news-tag battle">バトル</span>
@@ -1771,6 +1838,56 @@ function createCasinoIconDataUrl() {
   return c.toDataURL('image/png');
 }
 
+/* 🎓 アカデミ・ロジカ アイコン生成 */
+function createAcademiIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#1e3a8a'); bgGrad.addColorStop(0.5, '#2563eb'); bgGrad.addColorStop(1.0, '#0ea5e9');
+  ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, W, H);
+
+  ctx.beginPath(); ctx.roundRect(172, 516, 680, 324, 24);
+  ctx.fillStyle = '#0f172a'; ctx.fill();
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.85)'; ctx.lineWidth = 6; ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(202, 526); ctx.quadraticCurveTo(356, 488, 512, 540);
+  ctx.lineTo(512, 766); ctx.quadraticCurveTo(356, 718, 202, 744); ctx.closePath();
+  ctx.fillStyle = '#ffffff'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(512, 540); ctx.quadraticCurveTo(668, 488, 822, 526);
+  ctx.lineTo(822, 744); ctx.quadraticCurveTo(668, 718, 512, 766); ctx.closePath();
+  ctx.fillStyle = '#e2e8f0'; ctx.fill();
+
+  ctx.beginPath(); ctx.moveTo(352, 365); ctx.lineTo(352, 468);
+  ctx.quadraticCurveTo(512, 540, 672, 468); ctx.lineTo(672, 365); ctx.closePath();
+  ctx.fillStyle = '#1e293b'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(512, 200); ctx.lineTo(812, 338); ctx.lineTo(512, 466); ctx.lineTo(212, 338); ctx.closePath();
+  ctx.fillStyle = '#334155'; ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 4; ctx.stroke();
+
+  ctx.beginPath(); ctx.moveTo(512, 332); ctx.quadraticCurveTo(645, 342, 744, 384); ctx.lineTo(744, 514);
+  ctx.strokeStyle = '#fbbf24'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.stroke();
+  ctx.beginPath(); ctx.arc(512, 332, 18, 0, Math.PI * 2); ctx.fillStyle = '#f59e0b'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(744, 504); ctx.lineTo(766, 582); ctx.quadraticCurveTo(744, 594, 722, 582); ctx.closePath();
+  ctx.fillStyle = '#fde047'; ctx.fill();
+
+  drawSparkle(ctx, 220, 225, 24, 'rgba(254, 240, 138, 0.92)');
+  drawSparkle(ctx, 800, 220, 28, 'rgba(255, 255, 255, 0.9)');
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
 /* ============================================================================
    2. 公式サイト遷移＆ニュース絞り込み
 ============================================================================ */
@@ -1806,6 +1923,13 @@ const OFFICIAL_SITE_INFO = {
     ready: true,
     localUrl: '../カジノ・ロジカ/intro.html',
     webUrl: 'https://bio-labo.github.io/casino-logica/intro.html'
+  },
+  academi: {
+    emoji: '🎓',
+    title: 'アカデミ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../アカデミ・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/academi-logica/intro.html'
   }
 };
 
@@ -1844,6 +1968,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const labUrl = createLabIconDataUrl();
   const battleUrl = createBattleIconDataUrl();
   const casinoUrl = createCasinoIconDataUrl();
+  const academiUrl = createAcademiIconDataUrl();
 
   document.getElementById('navPortalIcon').src = portalUrl;
   document.getElementById('heroPortalIcon').src = portalUrl;
@@ -1853,7 +1978,44 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cardBattleIcon').src = battleUrl;
   document.getElementById('heroCasinoIcon').src = casinoUrl;
   document.getElementById('cardCasinoIcon').src = casinoUrl;
+  document.getElementById('heroAcademiIcon').src = academiUrl;
+  document.getElementById('cardAcademiIcon').src = academiUrl;
+
+  startHeroOrbit();
 });
+
+function startHeroOrbit() {
+  const stage = document.getElementById('heroOrbitStage');
+  if (!stage) return;
+  const sats = Array.from(stage.querySelectorAll('.orbit-sat'));
+  let angle = -Math.PI / 2;
+  let paused = false;
+
+  stage.addEventListener('mouseenter', () => { paused = true; });
+  stage.addEventListener('mouseleave', () => { paused = false; });
+
+  function tick() {
+    if (!paused) angle += 0.0085;
+    const w = stage.clientWidth || 600;
+    const isMob = window.innerWidth <= 768;
+    const rx = isMob ? Math.min(150, w * 0.36) : Math.min(240, w * 0.39);
+    const ry = isMob ? 48 : 62;
+
+    sats.forEach((el, i) => {
+      const a = angle + (i * Math.PI * 2) / sats.length;
+      const x = Math.cos(a) * rx;
+      const y = Math.sin(a) * ry;
+      const depth = Math.sin(a); // -1(奥) 〜 +1(手前)
+      const scale = 0.72 + ((depth + 1) / 2) * 0.42;
+      const opacity = 0.78 + ((depth + 1) / 2) * 0.22;
+      el.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+      el.style.zIndex = depth >= 0 ? String(20 + Math.round(depth * 5)) : String(2 + Math.round((depth + 1) * 5));
+      el.style.opacity = opacity.toFixed(2);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
 </script>
 </body>
 </html>
