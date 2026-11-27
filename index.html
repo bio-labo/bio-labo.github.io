@@ -437,13 +437,9 @@
     border-color: #2563eb;
     box-shadow: 0 8px 0 #1e3a8a, 0 18px 32px rgba(37, 99, 235, 0.18);
   }
-  @media (min-width: 821px) {
-    .game-card.academi {
-      grid-column: 1 / -1;
-      max-width: 548px;
-      width: 100%;
-      margin: 0 auto;
-    }
+  .game-card.histo {
+    border-color: #d97706;
+    box-shadow: 0 8px 0 #92400e, 0 18px 32px rgba(217, 119, 6, 0.18);
   }
 
   .game-card-top {
@@ -486,6 +482,7 @@
   .battle .game-role-badge { background: linear-gradient(135deg, #dc2626, #f97316); }
   .casino .game-role-badge { background: linear-gradient(135deg, #9333ea, #d97706); }
   .academi .game-role-badge { background: linear-gradient(135deg, #1d4ed8, #0ea5e9); }
+  .histo .game-role-badge { background: linear-gradient(135deg, #991b1b, #d97706); }
 
   .game-title {
     font-size: 1.42rem;
@@ -571,6 +568,11 @@
     background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
     border-color: #1e3a8a;
     box-shadow: 0 5px 0 #1e3a8a;
+  }
+  .histo .btn-official-site {
+    background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
+    border-color: #78350f;
+    box-shadow: 0 5px 0 #78350f;
   }
 
   /* 🔄 3. ロジカ・エコシステム */
@@ -694,6 +696,74 @@
   .news-tag.battle { background: #dc2626; }
   .news-tag.casino { background: #d97706; }
   .news-tag.academi { background: #2563eb; }
+  .news-tag.histo { background: #b45309; }
+
+  /* 📚 理系×文系 総合学習セクション */
+  .study-balance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+  .study-pillar-card {
+    background: #ffffff;
+    border: 3px solid #cbd5e1;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .study-pillar-card.stem {
+    border-color: #0ea5e9;
+    box-shadow: 0 8px 0 #bae6fd;
+  }
+  .study-pillar-card.humanities {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 0 #fde68a;
+  }
+  .study-pillar-card.breaktime {
+    border-color: #8b5cf6;
+    box-shadow: 0 8px 0 #ddd6fe;
+  }
+  .study-pillar-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.74rem;
+    font-weight: 900;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .stem .study-pillar-badge { background: linear-gradient(135deg, #0284c7, #10b981); }
+  .humanities .study-pillar-badge { background: linear-gradient(135deg, #b45309, #2563eb); }
+  .breaktime .study-pillar-badge { background: linear-gradient(135deg, #7c3aed, #d97706); }
+  .study-pillar-card h3 {
+    font-size: 1.18rem;
+    font-weight: 900;
+    color: var(--ink);
+  }
+  .study-pillar-card p {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--ink-sub);
+    line-height: 1.6;
+  }
+  .study-pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .study-pill {
+    font-size: 0.76rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+  }
 
   .news-text {
     font-size: 0.88rem;
@@ -885,7 +955,7 @@
   <section class="hero-section">
     <div class="container">
       <div class="hero-pill">
-        <span>✨ 完全無料・登録不要・ブラウザで動く5大Webゲーム総合ポータル</span>
+        <span>✨ 完全無料・登録不要・ブラウザで動く6大Webゲーム総合ポータル</span>
       </div>
 
       <!-- 6大立体アイコン 3Dオービットステージ -->
@@ -932,6 +1002,7 @@
         <a href="#card-battle" class="hero-mini-icon orbit-sat" title="バトル・ロジカ"><img id="heroBattleIcon" alt="バトル・ロジカ"></a>
         <a href="#card-casino" class="hero-mini-icon orbit-sat" title="カジノ・ロジカ"><img id="heroCasinoIcon" alt="カジノ・ロジカ"></a>
         <a href="#card-academi" class="hero-mini-icon orbit-sat" title="アカデミ・ロジカ"><img id="heroAcademiIcon" alt="アカデミ・ロジカ"></a>
+        <a href="#card-histo" class="hero-mini-icon orbit-sat" title="ヒスト・ロジカ"><img id="heroHistoIcon" alt="ヒスト・ロジカ"></a>
       </div>
 
       <h1 class="hero-title">
@@ -940,22 +1011,22 @@
       </h1>
 
       <p class="hero-sub">
-        実験・育成・バトル・息抜き・大学学問。<br>
+        理系（理科・実験・バトル）も、文系（歴史・国語・大学学問）も、息抜きも。<br>
         勉強がそのまま最強の力に変わる、新世代Webゲームポータル。
       </p>
 
       <div class="hero-cta-row">
-        <a href="#games" class="btn-3d btn-3d-primary">🎮 5大タイトルを見る</a>
+        <a href="#games" class="btn-3d btn-3d-primary">🎮 6大タイトルを見る</a>
         <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-tiktok">🎵 公式TikTok</a>
       </div>
     </div>
   </section>
 
-  <!-- 🎮 5大タイトル・ラインナップ -->
+  <!-- 🎮 6大タイトル・ラインナップ -->
   <section id="games" class="container section-wrap">
     <div class="section-head">
       <span class="section-badge">LINEUP</span>
-      <h2 class="section-title">ロジカ・シリーズ 5大タイトル</h2>
+      <h2 class="section-title">ロジカ・シリーズ 6大タイトル</h2>
       <p class="section-desc">気になるタイトルの公式サイトをチェックして、ゲームの世界へ飛び込もう！</p>
     </div>
 
@@ -1103,6 +1174,28 @@
           <span>📖 アカデミ・ロジカ 公式サイトを見る ➔</span>
         </button>
       </article>
+
+      <!-- 6. ヒスト・ロジカ -->
+      <article id="card-histo" class="game-card histo">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardHistoIcon" alt="ヒスト・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">文系8教科 ＆ 偉人育成バトル</span>
+              <h3 class="game-title">ヒスト・ロジカ</h3>
+              <p class="game-catch">全8教科 × 2,250問 × 24偉人オンライン対戦</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>社会4教科（日/世/地/公）＋国語3教科＋漢字の計2,250問</li>
+            <li>基礎〜難関大入試の4段階難易度＆全24偉人の描き下ろし育成</li>
+            <li>全国ランキング・フレンド対戦・4桁ルーム5問早押しバトル</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('histo')">
+          <span>📖 ヒスト・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
     </div>
   </section>
 
@@ -1141,48 +1234,43 @@
     </div>
   </section>
 
-  <!-- 📢 4. 横断ニュース -->
-  <section id="news" class="container section-wrap">
+  <!-- 📚 4. 理系も文系も、ロジカで攻略！ -->
+  <section id="study-balance" class="container section-wrap">
     <div class="section-head">
-      <span class="section-badge">NEWS &amp; UPDATES</span>
-      <h2 class="section-title">全タイトル 最新アップデート情報</h2>
-      <p class="section-desc">シリーズ各作品の最新アップデートをチェックしよう。</p>
+      <span class="section-badge">STEM &times; HUMANITIES</span>
+      <h2 class="section-title">理系も文系も、ロジカでまるごと攻略！</h2>
+      <p class="section-desc">『ヒスト・ロジカ』と『アカデミ・ロジカ』が揃ったことで、ロジカ・シリーズだけで理系から文系・大学教養までバランスよく楽しく学べるようになりました。</p>
     </div>
 
-    <div class="news-box">
-      <div class="news-tabs">
-        <button type="button" class="news-tab-btn active" onclick="filterNews('all', this)">すべて</button>
-        <button type="button" class="news-tab-btn" onclick="filterNews('bio', this)">🧬 バイオ</button>
-        <button type="button" class="news-tab-btn" onclick="filterNews('lab', this)">🔬 ラボ</button>
-        <button type="button" class="news-tab-btn" onclick="filterNews('battle', this)">⚔️ バトル</button>
-        <button type="button" class="news-tab-btn" onclick="filterNews('casino', this)">🎰 カジノ</button>
-        <button type="button" class="news-tab-btn" onclick="filterNews('academi', this)">🎓 アカデミ</button>
+    <div class="study-balance-grid">
+      <div class="study-pillar-card stem">
+        <span class="study-pillar-badge">🧪 理系科目を攻略</span>
+        <h3>実験×育成×戦略で理系脳を鍛える</h3>
+        <p>『ラボ・ロジカ』の60fps実験アニメで現象を見て理解し、『バイオ・ロジカ』の理科クイズ＆細胞育成で定着！育てた仲間と『バトル・ロジカ』で戦うことで、理科の知識がそのままゲーム攻略に直結します。</p>
+        <div class="study-pill-list">
+          <span class="study-pill">🧬 バイオ・ロジカ</span>
+          <span class="study-pill">🔬 ラボ・ロジカ</span>
+          <span class="study-pill">⚔️ バトル・ロジカ</span>
+        </div>
       </div>
-      <div class="news-list" id="newsList">
-        <div class="news-item" data-cat="academi">
-          <span class="news-date">2026-11-27</span>
-          <span class="news-tag academi">アカデミ</span>
-          <span class="news-text">5大ジャンル×15学科×全450用語！本格4段「大学先取り講義 ➔ クイズ」2ステップ学習システムを実装！</span>
+
+      <div class="study-pillar-card humanities">
+        <span class="study-pillar-badge">📜 文系＆教養を攻略</span>
+        <h3>歴史・国語から大学の学問まで</h3>
+        <p>『ヒスト・ロジカ』で日本史・世界史・地理・公民・現代文・古文・漢文・漢字の全2,250問に挑戦！さらに『アカデミ・ロジカ』では心理学・経済学・法学・哲学・AIなど15学科の大学教養を日常あるあるから先取りできます。</p>
+        <div class="study-pill-list">
+          <span class="study-pill">📜 ヒスト・ロジカ</span>
+          <span class="study-pill">🎓 アカデミ・ロジカ</span>
         </div>
-        <div class="news-item" data-cat="battle">
-          <span class="news-date">2026-11-23</span>
-          <span class="news-tag battle">バトル</span>
-          <span class="news-text">ストーリー全10章（100ステージ）＆「種族×ランク」別個体・ATP/DNAメダル還元機能を実装！</span>
-        </div>
-        <div class="news-item" data-cat="casino">
-          <span class="news-date">2026-11-22</span>
-          <span class="news-tag casino">カジノ</span>
-          <span class="news-text">Firebase通信ルーム・実プレイヤーランキング＆賭け勝負・0チップ時バイオ出稼ぎ連動を実装！</span>
-        </div>
-        <div class="news-item" data-cat="lab">
-          <span class="news-date">2026-11-22</span>
-          <span class="news-tag lab">ラボ</span>
-          <span class="news-text">高校理科全69実験の60fps Canvasアニメ＆PV風オフライン動画プレイヤーを実装し公開！</span>
-        </div>
-        <div class="news-item" data-cat="bio">
-          <span class="news-date">2026-11-22</span>
-          <span class="news-tag bio">バイオ</span>
-          <span class="news-text">超越ランク【XR】【MR】進化＆ゲノム合成ラボ実装！さらに全教科480問超の問題プールを強化！</span>
+      </div>
+
+      <div class="study-pillar-card breaktime">
+        <span class="study-pillar-badge">🎰 息抜き＆継続ループ</span>
+        <h3>遊んで休んで、また勉強したくなる</h3>
+        <p>勉強の合間には課金ゼロの『カジノ・ロジカ』で8種のテーブルゲームを満喫。もしチップが0になっても勉強クイズで即復活できるから、理系・文系の学習を無理なく毎日続けられます。</p>
+        <div class="study-pill-list">
+          <span class="study-pill">🎰 カジノ・ロジカ</span>
+          <span class="study-pill">🔄 学習サイクル</span>
         </div>
       </div>
     </div>
@@ -1226,7 +1314,60 @@
       <div class="policy-card">
         <div class="policy-icon">📚</div>
         <h4>本格学習ベース</h4>
-        <p>中高生・大学受験レベルの理系知識や英語が楽しく身につきます。</p>
+        <p>中高生・大学受験レベルの理系・文系知識や大学教養が楽しく身につきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📢 7. 横断ニュース（最新アップデート情報） -->
+  <section id="news" class="container section-wrap">
+    <div class="section-head">
+      <span class="section-badge">NEWS &amp; UPDATES</span>
+      <h2 class="section-title">全タイトル 最新アップデート情報</h2>
+      <p class="section-desc">シリーズ各作品の最新アップデートをチェックしよう。</p>
+    </div>
+
+    <div class="news-box">
+      <div class="news-tabs">
+        <button type="button" class="news-tab-btn active" onclick="filterNews('all', this)">すべて</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('bio', this)">🧬 バイオ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('lab', this)">🔬 ラボ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('battle', this)">⚔️ バトル</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('casino', this)">🎰 カジノ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('academi', this)">🎓 アカデミ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('histo', this)">📜 ヒスト</button>
+      </div>
+      <div class="news-list" id="newsList">
+        <div class="news-item" data-cat="histo">
+          <span class="news-date">2026-11-28</span>
+          <span class="news-tag histo">ヒスト</span>
+          <span class="news-text">文系全8教科×2,250問＆4段階難易度セレクト！全24偉人育成×4桁ルーム5問早押し対戦を公開！</span>
+        </div>
+        <div class="news-item" data-cat="academi">
+          <span class="news-date">2026-11-27</span>
+          <span class="news-tag academi">アカデミ</span>
+          <span class="news-text">5大ジャンル×15学科×全450用語！本格4段「大学先取り講義 ➔ クイズ」2ステップ学習システムを実装！</span>
+        </div>
+        <div class="news-item" data-cat="battle">
+          <span class="news-date">2026-11-23</span>
+          <span class="news-tag battle">バトル</span>
+          <span class="news-text">ストーリー全10章（100ステージ）＆「種族×ランク」別個体・ATP/DNAメダル還元機能を実装！</span>
+        </div>
+        <div class="news-item" data-cat="casino">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag casino">カジノ</span>
+          <span class="news-text">Firebase通信ルーム・実プレイヤーランキング＆賭け勝負・0チップ時バイオ出稼ぎ連動を実装！</span>
+        </div>
+        <div class="news-item" data-cat="lab">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag lab">ラボ</span>
+          <span class="news-text">高校理科全69実験の60fps Canvasアニメ＆PV風オフライン動画プレイヤーを実装し公開！</span>
+        </div>
+        <div class="news-item" data-cat="bio">
+          <span class="news-date">2026-11-22</span>
+          <span class="news-tag bio">バイオ</span>
+          <span class="news-text">超越ランク【XR】【MR】進化＆ゲノム合成ラボ実装！さらに全教科480問超の問題プールを強化！</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1888,6 +2029,59 @@ function createAcademiIconDataUrl() {
   return c.toDataURL('image/png');
 }
 
+/* 📜 ヒスト・ロジカ アイコン生成 */
+function createHistoIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#6b1d14'); bgGrad.addColorStop(0.48, '#b45309'); bgGrad.addColorStop(1.0, '#f59e0b');
+  ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, W, H);
+
+  ctx.beginPath(); ctx.roundRect(154, 348, 716, 434, 28);
+  ctx.fillStyle = '#451a03'; ctx.fill();
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.9)'; ctx.lineWidth = 7; ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(186, 366); ctx.quadraticCurveTo(348, 326, 512, 382);
+  ctx.lineTo(512, 738); ctx.quadraticCurveTo(348, 686, 186, 720); ctx.closePath();
+  ctx.fillStyle = '#fffbeb'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(512, 382); ctx.quadraticCurveTo(676, 326, 838, 366);
+  ctx.lineTo(838, 720); ctx.quadraticCurveTo(676, 686, 512, 738); ctx.closePath();
+  ctx.fillStyle = '#fde68a'; ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(500, 688); ctx.lineTo(500, 846); ctx.lineTo(524, 818);
+  ctx.lineTo(548, 846); ctx.lineTo(548, 688); ctx.closePath();
+  ctx.fillStyle = '#dc2626'; ctx.fill();
+
+  ctx.save();
+  ctx.translate(585, 510); ctx.rotate(-42 * Math.PI / 180);
+  ctx.beginPath();
+  ctx.moveTo(-220, 0);
+  ctx.bezierCurveTo(-170, -82, 40, -104, 240, -12);
+  ctx.bezierCurveTo(210, 42, 65, 76, -155, 32); ctx.closePath();
+  ctx.fillStyle = '#ffffff'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-250, 4); ctx.quadraticCurveTo(-40, -10, 232, -8);
+  ctx.strokeStyle = '#d97706'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-250, 4); ctx.lineTo(-298, 12); ctx.lineTo(-244, -10); ctx.closePath();
+  ctx.fillStyle = '#fde047'; ctx.fill();
+  ctx.restore();
+
+  drawSparkle(ctx, 210, 210, 28, 'rgba(254, 240, 138, 0.94)');
+  drawSparkle(ctx, 810, 200, 34, 'rgba(255, 255, 255, 0.92)');
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
 /* ============================================================================
    2. 公式サイト遷移＆ニュース絞り込み
 ============================================================================ */
@@ -1930,6 +2124,13 @@ const OFFICIAL_SITE_INFO = {
     ready: true,
     localUrl: '../アカデミ・ロジカ/intro.html',
     webUrl: 'https://bio-labo.github.io/academi-logica/intro.html'
+  },
+  histo: {
+    emoji: '📜',
+    title: 'ヒスト・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../ヒスト・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/histo-logica/intro.html'
   }
 };
 
@@ -1969,6 +2170,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const battleUrl = createBattleIconDataUrl();
   const casinoUrl = createCasinoIconDataUrl();
   const academiUrl = createAcademiIconDataUrl();
+  const histoUrl = createHistoIconDataUrl();
 
   document.getElementById('navPortalIcon').src = portalUrl;
   document.getElementById('heroPortalIcon').src = portalUrl;
@@ -1980,6 +2182,8 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cardCasinoIcon').src = casinoUrl;
   document.getElementById('heroAcademiIcon').src = academiUrl;
   document.getElementById('cardAcademiIcon').src = academiUrl;
+  document.getElementById('heroHistoIcon').src = histoUrl;
+  document.getElementById('cardHistoIcon').src = histoUrl;
 
   startHeroOrbit();
 });
