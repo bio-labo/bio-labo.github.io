@@ -441,6 +441,14 @@
     border-color: #d97706;
     box-shadow: 0 8px 0 #92400e, 0 18px 32px rgba(217, 119, 6, 0.18);
   }
+  .game-card.life {
+    border-color: #10b981;
+    box-shadow: 0 8px 0 #047857, 0 18px 32px rgba(16, 185, 129, 0.18);
+  }
+  .game-card.party {
+    border-color: #9333ea;
+    box-shadow: 0 8px 0 #581c87, 0 18px 32px rgba(147, 51, 234, 0.18);
+  }
 
   .game-card-top {
     display: flex;
@@ -483,6 +491,8 @@
   .casino .game-role-badge { background: linear-gradient(135deg, #9333ea, #d97706); }
   .academi .game-role-badge { background: linear-gradient(135deg, #1d4ed8, #0ea5e9); }
   .histo .game-role-badge { background: linear-gradient(135deg, #991b1b, #d97706); }
+  .life .game-role-badge { background: linear-gradient(135deg, #047857, #10b981); }
+  .party .game-role-badge { background: linear-gradient(135deg, #7c3aed, #06b6d4); }
 
   .game-title {
     font-size: 1.42rem;
@@ -521,6 +531,9 @@
   .battle .game-points li::before { color: #dc2626; }
   .casino .game-points li::before { color: #d97706; }
   .academi .game-points li::before { color: #2563eb; }
+  .histo .game-points li::before { color: #b45309; }
+  .life .game-points li::before { color: #059669; }
+  .party .game-points li::before { color: #7c3aed; }
 
   .btn-official-site {
     display: flex;
@@ -573,6 +586,16 @@
     background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
     border-color: #78350f;
     box-shadow: 0 5px 0 #78350f;
+  }
+  .life .btn-official-site {
+    background: linear-gradient(180deg, #10b981 0%, #047857 100%);
+    border-color: #064e3b;
+    box-shadow: 0 5px 0 #064e3b;
+  }
+  .party .btn-official-site {
+    background: linear-gradient(180deg, #a855f7 0%, #7c3aed 100%);
+    border-color: #4c1d95;
+    box-shadow: 0 5px 0 #4c1d95;
   }
 
   /* 🔄 3. ロジカ・エコシステム */
@@ -697,6 +720,8 @@
   .news-tag.casino { background: #d97706; }
   .news-tag.academi { background: #2563eb; }
   .news-tag.histo { background: #b45309; }
+  .news-tag.life { background: #059669; }
+  .news-tag.party { background: #7c3aed; }
 
   /* 📚 理系×文系 総合学習セクション */
   .study-balance-grid {
@@ -955,10 +980,10 @@
   <section class="hero-section">
     <div class="container">
       <div class="hero-pill">
-        <span>✨ 完全無料・登録不要・ブラウザで動く6大Webゲーム総合ポータル</span>
+        <span>✨ 完全無料・登録不要・ブラウザで動く8大Webゲーム総合ポータル</span>
       </div>
 
-      <!-- 6大立体アイコン 3Dオービットステージ -->
+      <!-- 8大立体アイコン 3Dオービットステージ -->
       <div class="hero-icons-stage" id="heroOrbitStage">
         <div class="orbit-ring"></div>
         <div class="hero-center-icon" title="LOGICA PORTAL"><img id="heroPortalIcon" alt="LOGICA PORTAL"></div>
@@ -1003,6 +1028,8 @@
         <a href="#card-casino" class="hero-mini-icon orbit-sat" title="カジノ・ロジカ"><img id="heroCasinoIcon" alt="カジノ・ロジカ"></a>
         <a href="#card-academi" class="hero-mini-icon orbit-sat" title="アカデミ・ロジカ"><img id="heroAcademiIcon" alt="アカデミ・ロジカ"></a>
         <a href="#card-histo" class="hero-mini-icon orbit-sat" title="ヒスト・ロジカ"><img id="heroHistoIcon" alt="ヒスト・ロジカ"></a>
+        <a href="#card-life" class="hero-mini-icon orbit-sat" title="ライフ・ロジカ"><img id="heroLifeIcon" alt="ライフ・ロジカ"></a>
+        <a href="#card-party" class="hero-mini-icon orbit-sat" title="パーティ・ロジカ"><img id="heroPartyIcon" alt="パーティ・ロジカ"></a>
       </div>
 
       <h1 class="hero-title">
@@ -1011,22 +1038,22 @@
       </h1>
 
       <p class="hero-sub">
-        理系（理科・実験・バトル）も、文系（歴史・国語・大学学問）も、息抜きも。<br>
+        理系（理科・実験・バトル）も、文系（歴史・国語・大学学問）も、生活の知恵・パーティー・息抜きも。<br>
         勉強がそのまま最強の力に変わる、新世代Webゲームポータル。
       </p>
 
       <div class="hero-cta-row">
-        <a href="#games" class="btn-3d btn-3d-primary">🎮 6大タイトルを見る</a>
+        <a href="#games" class="btn-3d btn-3d-primary">🎮 8大タイトルを見る</a>
         <a href="https://www.tiktok.com/@logica_apps" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-tiktok">🎵 公式TikTok</a>
       </div>
     </div>
   </section>
 
-  <!-- 🎮 6大タイトル・ラインナップ -->
+  <!-- 🎮 8大タイトル・ラインナップ -->
   <section id="games" class="container section-wrap">
     <div class="section-head">
       <span class="section-badge">LINEUP</span>
-      <h2 class="section-title">ロジカ・シリーズ 6大タイトル</h2>
+      <h2 class="section-title">ロジカ・シリーズ 8大タイトル</h2>
       <p class="section-desc">気になるタイトルの公式サイトをチェックして、ゲームの世界へ飛び込もう！</p>
     </div>
 
@@ -1143,8 +1170,8 @@
             </div>
           </div>
           <ul class="game-points" style="margin-top:16px;">
-            <li>チンチロ・ヨット・BJ・ポーカー・スロット・麻雀等全8種</li>
-            <li>AI対戦・1台交互対戦・4桁通信ルーム＆ランキング</li>
+            <li>チンチロ・ヨット・BJ・ポーカー・麻雀（カン＆リアル牌）等全8種</li>
+            <li>AI対戦・1台交互対戦・4桁通信ルーム＆スマホ横画面対応</li>
             <li>所持チップ0で『バイオ・ロジカ』出稼ぎ勉強が解放！</li>
           </ul>
         </div>
@@ -1194,6 +1221,50 @@
         </div>
         <button type="button" class="btn-official-site" onclick="openGameOfficialSite('histo')">
           <span>📖 ヒスト・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 7. ライフ・ロジカ -->
+      <article id="card-life" class="game-card life">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardLifeIcon" alt="ライフ・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">生活の知恵 ＆ ライフハック</span>
+              <h3 class="game-title">ライフ・ロジカ</h3>
+              <p class="game-catch">6大ジャンル × 18テーマ × 全450知恵</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>衣食住の裏ワザ・お金＆契約防衛・防災救急・マナー・睡眠</li>
+            <li>「知恵袋＋クイズ」＆「全25問実力テスト」の2モード搭載</li>
+            <li>完全オフライン動作で自分の「ライフ図鑑450」を育成！</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('life')">
+          <span>📖 ライフ・ロジカ 公式サイトを見る ➔</span>
+        </button>
+      </article>
+
+      <!-- 8. パーティ・ロジカ -->
+      <article id="card-party" class="game-card party">
+        <div>
+          <div class="game-card-top">
+            <div class="game-icon-frame"><img id="cardPartyIcon" alt="パーティ・ロジカ"></div>
+            <div>
+              <span class="game-role-badge">総合パーティー ＆ 心理戦</span>
+              <h3 class="game-title">パーティ・ロジカ</h3>
+              <p class="game-catch">全21ゲーム × 20種が4桁オンライン対戦対応</p>
+            </div>
+          </div>
+          <ul class="game-points" style="margin-top:16px;">
+            <li>クラシック人狼(12役職)・ito風・大富豪・お絵かき伝言・大喜利</li>
+            <li>ウミガメのスープ15問・ブラックストーリーズ8問・AI心理診断</li>
+            <li>4桁合言葉オンライン対戦・1台交互・AI対戦＆横画面対応！</li>
+          </ul>
+        </div>
+        <button type="button" class="btn-official-site" onclick="openGameOfficialSite('party')">
+          <span>📖 パーティ・ロジカ 公式サイトを見る ➔</span>
         </button>
       </article>
     </div>
@@ -1265,12 +1336,13 @@
       </div>
 
       <div class="study-pillar-card breaktime">
-        <span class="study-pillar-badge">🎰 息抜き＆継続ループ</span>
-        <h3>遊んで休んで、また勉強したくなる</h3>
-        <p>勉強の合間には課金ゼロの『カジノ・ロジカ』で8種のテーブルゲームを満喫。もしチップが0になっても勉強クイズで即復活できるから、理系・文系の学習を無理なく毎日続けられます。</p>
+        <span class="study-pillar-badge">💡 生活の知恵＆息抜き＆交流</span>
+        <h3>暮らしの教養も、友達との遊びも！</h3>
+        <p>『ライフ・ロジカ』で450の生活防衛術・防災・マナーを学びつつ、合間には『カジノ・ロジカ』や20種オンライン対戦対応の『パーティ・ロジカ』でリフレッシュ！勉強から日常・交流まで毎日続けられます。</p>
         <div class="study-pill-list">
+          <span class="study-pill">💡 ライフ・ロジカ</span>
           <span class="study-pill">🎰 カジノ・ロジカ</span>
-          <span class="study-pill">🔄 学習サイクル</span>
+          <span class="study-pill">🎉 パーティ・ロジカ</span>
         </div>
       </div>
     </div>
@@ -1336,8 +1408,25 @@
         <button type="button" class="news-tab-btn" onclick="filterNews('casino', this)">🎰 カジノ</button>
         <button type="button" class="news-tab-btn" onclick="filterNews('academi', this)">🎓 アカデミ</button>
         <button type="button" class="news-tab-btn" onclick="filterNews('histo', this)">📜 ヒスト</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('life', this)">💡 ライフ</button>
+        <button type="button" class="news-tab-btn" onclick="filterNews('party', this)">🎉 パーティ</button>
       </div>
       <div class="news-list" id="newsList">
+        <div class="news-item" data-cat="party">
+          <span class="news-date">2026-11-28</span>
+          <span class="news-tag party">パーティ</span>
+          <span class="news-text">全21ゲーム実装＆診断以外の全20ゲームが4桁合言葉オンライン対戦に対応！（人狼12役職・トランプUI・横画面対応）</span>
+        </div>
+        <div class="news-item" data-cat="life">
+          <span class="news-date">2026-11-28</span>
+          <span class="news-tag life">ライフ</span>
+          <span class="news-text">6大ジャンル×18テーマ×全450知恵へ大増量！「知恵袋＋クイズ」「全25問実力テスト」＆公式アイコン刷新！</span>
+        </div>
+        <div class="news-item" data-cat="casino">
+          <span class="news-date">2026-11-28</span>
+          <span class="news-tag casino">カジノ</span>
+          <span class="news-text">麻雀エンジンに「カン（大明槓・暗槓・加槓）」＆リアル牌SVGデザイン選択＆スマホ疑似横画面ワイド雀卓モードを実装！</span>
+        </div>
         <div class="news-item" data-cat="histo">
           <span class="news-date">2026-11-28</span>
           <span class="news-tag histo">ヒスト</span>
@@ -1349,14 +1438,9 @@
           <span class="news-text">5大ジャンル×15学科×全450用語！本格4段「大学先取り講義 ➔ クイズ」2ステップ学習システムを実装！</span>
         </div>
         <div class="news-item" data-cat="battle">
-          <span class="news-date">2026-11-23</span>
+          <span class="news-date">2026-11-27</span>
           <span class="news-tag battle">バトル</span>
-          <span class="news-text">ストーリー全10章（100ステージ）＆「種族×ランク」別個体・ATP/DNAメダル還元機能を実装！</span>
-        </div>
-        <div class="news-item" data-cat="casino">
-          <span class="news-date">2026-11-22</span>
-          <span class="news-tag casino">カジノ</span>
-          <span class="news-text">Firebase通信ルーム・実プレイヤーランキング＆賭け勝負・0チップ時バイオ出稼ぎ連動を実装！</span>
+          <span class="news-text">ストーリー全10章（100ステージ）＆公式アイコンをタイトル＆ヘッダーへ統合！</span>
         </div>
         <div class="news-item" data-cat="lab">
           <span class="news-date">2026-11-22</span>
@@ -2082,6 +2166,125 @@ function createHistoIconDataUrl() {
   return c.toDataURL('image/png');
 }
 
+/* 💡 ライフ・ロジカ アイコン生成 */
+function createLifeIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#047857'); bgGrad.addColorStop(0.55, '#10b981'); bgGrad.addColorStop(1.0, '#f59e0b');
+  ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, W, H);
+
+  ctx.save();
+  ctx.translate(458, 578); ctx.rotate(-7 * Math.PI / 180);
+  const nbX = -215, nbY = -230, nbW = 430, nbH = 490;
+  ['#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6', '#06b6d4'].forEach((col, i) => {
+    ctx.beginPath(); ctx.roundRect(nbX + nbW - 18, nbY + 48 + i * 66, 52, 46, 12);
+    ctx.fillStyle = col; ctx.fill();
+  });
+  ctx.beginPath(); ctx.roundRect(nbX, nbY, nbW, nbH, 40);
+  ctx.fillStyle = '#fffbeb'; ctx.fill();
+  ctx.fillStyle = '#065f46'; ctx.fillRect(nbX, nbY, 96, nbH);
+  ctx.fillStyle = '#fbbf24'; ctx.fillRect(nbX + 86, nbY, 8, nbH);
+  ctx.beginPath();
+  ctx.moveTo(nbX + 94, nbY + 295); ctx.quadraticCurveTo(nbX + 260, nbY + 335, nbX + nbW, nbY + 295);
+  ctx.lineTo(nbX + nbW, nbY + nbH); ctx.lineTo(nbX + 94, nbY + nbH); ctx.closePath();
+  ctx.fillStyle = '#6ee7b7'; ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.translate(650, 345); ctx.rotate(12 * Math.PI / 180);
+  ctx.beginPath();
+  ctx.arc(0, -24, 132, Math.PI * 0.78, Math.PI * 0.22, false);
+  ctx.quadraticCurveTo(96, 86, 62, 134); ctx.lineTo(-62, 134);
+  ctx.quadraticCurveTo(-96, 86, Math.cos(Math.PI * 0.78) * 132, -24 + Math.sin(Math.PI * 0.78) * 132);
+  ctx.closePath(); ctx.fillStyle = '#fef9c3'; ctx.fill();
+  let rot = Math.PI / 2 * 3, step = Math.PI / 5;
+  ctx.beginPath(); ctx.moveTo(0, -82);
+  for (let i = 0; i < 5; i++) {
+    ctx.lineTo(Math.cos(rot) * 58, -24 + Math.sin(rot) * 58); rot += step;
+    ctx.lineTo(Math.cos(rot) * 26, -24 + Math.sin(rot) * 26); rot += step;
+  }
+  ctx.closePath(); ctx.fillStyle = '#f59e0b'; ctx.fill();
+  ctx.beginPath(); ctx.roundRect(-56, 132, 112, 32, 14); ctx.fillStyle = '#d97706'; ctx.fill();
+  ctx.beginPath(); ctx.roundRect(-44, 170, 88, 28, 14); ctx.fillStyle = '#92400e'; ctx.fill();
+  ctx.restore();
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
+/* 🎉 パーティ・ロジカ アイコン生成 */
+function createPartyIconDataUrl() {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 512;
+  const ctx = c.getContext('2d');
+  ctx.scale(0.5, 0.5);
+  const W = 1024, H = 1024, R = 224;
+
+  ctx.save();
+  clipRoundedIcon(ctx, W, H, R);
+
+  const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+  bgGrad.addColorStop(0.0, '#4c1d95'); bgGrad.addColorStop(0.5, '#7c3aed'); bgGrad.addColorStop(1.0, '#06b6d4');
+  ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, W, H);
+
+  [
+    { x: 560, y: 270, rot: -16, suit: '♠', color: '#0f172a', label: 'A' },
+    { x: 705, y: 310, rot: 22,  suit: '♥', color: '#e11d48', label: 'K' }
+  ].forEach(card => {
+    ctx.save();
+    ctx.translate(card.x, card.y); ctx.rotate(card.rot * Math.PI / 180);
+    ctx.beginPath(); ctx.roundRect(-62, -88, 124, 176, 18);
+    ctx.fillStyle = '#ffffff'; ctx.fill();
+    ctx.fillStyle = card.color;
+    ctx.font = '900 38px sans-serif'; ctx.textAlign = 'left'; ctx.fillText(card.label, -46, -42);
+    ctx.font = '84px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(card.suit, 0, 12);
+    ctx.restore();
+  });
+
+  [
+    { pts: [[440, 520], [500, 320], [390, 210]], col: '#00e5ff' },
+    { pts: [[485, 555], [680, 480], [820, 560]], col: '#f43f5e' },
+    { pts: [[460, 535], [610, 390], [660, 180]], col: '#facc15' },
+    { pts: [[495, 580], [720, 620], [780, 740]], col: '#10b981' }
+  ].forEach(r => {
+    ctx.beginPath(); ctx.moveTo(r.pts[0][0], r.pts[0][1]);
+    ctx.quadraticCurveTo(r.pts[1][0], r.pts[1][1], r.pts[2][0], r.pts[2][1]);
+    ctx.strokeStyle = r.col; ctx.lineWidth = 18; ctx.lineCap = 'round'; ctx.stroke();
+  });
+
+  ctx.save();
+  ctx.translate(345, 650); ctx.rotate(42 * Math.PI / 180);
+  ctx.beginPath();
+  ctx.moveTo(-124, -155); ctx.lineTo(124, -155);
+  ctx.lineTo(24, 185); ctx.quadraticCurveTo(0, 210, -24, 185); ctx.closePath();
+  const coneGrad = ctx.createLinearGradient(-124, 0, 124, 0);
+  coneGrad.addColorStop(0.0, '#d97706'); coneGrad.addColorStop(0.4, '#fef08a'); coneGrad.addColorStop(1.0, '#b45309');
+  ctx.fillStyle = coneGrad; ctx.fill();
+  ctx.save(); ctx.clip();
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.85)';
+  [-110, 10, 130].forEach(sy => {
+    ctx.beginPath();
+    ctx.moveTo(-150, sy); ctx.lineTo(150, sy - 65); ctx.lineTo(150, sy - 25); ctx.lineTo(-150, sy + 40);
+    ctx.closePath(); ctx.fill();
+  });
+  ctx.restore();
+  ctx.beginPath(); ctx.ellipse(0, -155, 126, 36, 0, 0, Math.PI * 2);
+  ctx.fillStyle = '#1e1b4b'; ctx.fill();
+  ctx.strokeStyle = '#fef08a'; ctx.lineWidth = 10; ctx.stroke();
+  ctx.restore();
+
+  ctx.restore();
+  return c.toDataURL('image/png');
+}
+
 /* ============================================================================
    2. 公式サイト遷移＆ニュース絞り込み
 ============================================================================ */
@@ -2131,6 +2334,20 @@ const OFFICIAL_SITE_INFO = {
     ready: true,
     localUrl: '../ヒスト・ロジカ/intro.html',
     webUrl: 'https://bio-labo.github.io/histo-logica/intro.html'
+  },
+  life: {
+    emoji: '💡',
+    title: 'ライフ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../ライフ・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/life-logica/intro.html'
+  },
+  party: {
+    emoji: '🎉',
+    title: 'パーティ・ロジカ 公式サイト',
+    ready: true,
+    localUrl: '../パーティ・ロジカ/intro.html',
+    webUrl: 'https://bio-labo.github.io/party-logica/intro.html'
   }
 };
 
@@ -2171,6 +2388,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const casinoUrl = createCasinoIconDataUrl();
   const academiUrl = createAcademiIconDataUrl();
   const histoUrl = createHistoIconDataUrl();
+  const lifeUrl = createLifeIconDataUrl();
+  const partyUrl = createPartyIconDataUrl();
 
   document.getElementById('navPortalIcon').src = portalUrl;
   document.getElementById('heroPortalIcon').src = portalUrl;
@@ -2184,6 +2403,10 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cardAcademiIcon').src = academiUrl;
   document.getElementById('heroHistoIcon').src = histoUrl;
   document.getElementById('cardHistoIcon').src = histoUrl;
+  document.getElementById('heroLifeIcon').src = lifeUrl;
+  document.getElementById('cardLifeIcon').src = lifeUrl;
+  document.getElementById('heroPartyIcon').src = partyUrl;
+  document.getElementById('cardPartyIcon').src = partyUrl;
 
   startHeroOrbit();
 });
